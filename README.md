@@ -1,4 +1,4 @@
-#Super Nintendo Game Info
+# Super Nintendo Game Info
 Get information on every official North American SNES game release.
 
-##More coming soon...
+## More coming soon...
