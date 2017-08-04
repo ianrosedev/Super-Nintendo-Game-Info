@@ -6,10 +6,9 @@
 }
 
 $font-stack: 'SNES-italic', sans-serif;
-$background-color: linear-gradient($charcoal, $dark-purple);
 
 .header-container {
-  background: $background-color;
+  background-color: $charcoal;
   height: calc(180px + 4vh);
   padding: 15px 15px 25px 15px;
 }
@@ -23,17 +22,31 @@ $background-color: linear-gradient($charcoal, $dark-purple);
   border: 7px solid $red;
   border-radius: 10px;
 
+  img {
+    height: calc(50px + 4.5vw);
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
   h1 {
     font-family: $font-stack;
     font-size: calc(16px + 9vw);
     color: $red;
-    margin: 15px;
-    padding: 15px;
+    margin: 10px;
+    padding: 10px;
   }
+}
 
-  img {
-    height: calc(50px + 4vw);
-    padding: 15px;
-    margin-bottom: 10px;
+@media (max-width: 760px) {
+  .header {
+    img {
+      display: none;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: calc(48px + 5vw);
+      margin: 5px;
+    }
   }
 }
