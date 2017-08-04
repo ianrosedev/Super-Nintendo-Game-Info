@@ -1,27 +1,34 @@
-.header {
-  background-color: #95ceff;
-  height: 200px;
-  padding: 15px;
+@font-face {
+  font-family: 'SNES-italic';
+  src: url('../../fonts/SNES-italic.ttf');
 }
 
 .header-container {
+  background: linear-gradient(#000, #4f43ae);
+  height: calc(180px + 4vh);
+  padding: 15px 15px 25px 15px;
+}
+
+.header {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 100%;
-  height: 100%;
-  border: 2px solid blue;
+  width: 98.5%;
+  height: 98%;
+  border: 7px solid #ff0000;
   border-radius: 10px;
 }
 
 .header h1 {
-  margin: 0;
+  font-family: 'SNES-italic', sans-serif;
+  font-size: calc(16px + 9vw);
+  color: #ff0000;
+  margin: 15px;
   padding: 15px;
-  font-size: calc(22px + 3.3vw);
 }
 
 .header img {
-  height: 50%;
-  max-height: 100px;
+  height: calc(50px + 4vw);
   padding: 15px;
+  margin-bottom: 8px;
 }

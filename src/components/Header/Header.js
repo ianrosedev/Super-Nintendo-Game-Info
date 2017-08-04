@@ -2,10 +2,10 @@ import React from 'react';
 import './Header.css';
 
 const Header = () => (
-  <div className='header'>
-    <div className='header-container'>
+  <div className='header-container'>
+    <div className='header'>
       <h1>Super Nintendo Game Info</h1>
-      <img src={require('./mushroom.png')} alt='Super Mario mushroom' />
+      <img src={require('../../images/super-nintendo-logo.png')} alt='Super Nintendo circles logo' />
     </div>
   </div>
 );
