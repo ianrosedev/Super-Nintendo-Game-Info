@@ -1,11 +1,12 @@
+@import 'media/styles/_colors';
+
 @font-face {
   font-family: 'SNES-italic';
   src: url('../../media/fonts/SNES-italic.ttf');
 }
 
 $font-stack: 'SNES-italic', sans-serif;
-$background-color: linear-gradient(#000, #4f43ae);
-$nintendo-red: #fe0016;
+$background-color: linear-gradient($charcoal, $dark-purple);
 
 .header-container {
   background: $background-color;
@@ -17,15 +18,15 @@ $nintendo-red: #fe0016;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 98.5%;
-  height: 98%;
-  border: 7px solid $nintendo-red;
+  width: inherit;
+  height: inherit;
+  border: 7px solid $red;
   border-radius: 10px;
 
   h1 {
     font-family: $font-stack;
     font-size: calc(16px + 9vw);
-    color: $nintendo-red;
+    color: $red;
     margin: 15px;
     padding: 15px;
   }
@@ -33,6 +34,6 @@ $nintendo-red: #fe0016;
   img {
     height: calc(50px + 4vw);
     padding: 15px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 }
