@@ -5,7 +5,10 @@ const Header = () => (
   <div className='header-container'>
     <div className='header'>
       <h1>Super Nintendo Game Info</h1>
-      <img src={require('../../media/images/super-nintendo-logo.png')} alt='Super Nintendo circles logo' />
+      <img
+        src={require('../../media/images/super-nintendo-logo.png')}
+        alt='Super Nintendo circles logo'
+      />
     </div>
   </div>
 );
