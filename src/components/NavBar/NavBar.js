@@ -3,7 +3,7 @@ import './Navbar.css';
 
 const Navbar = () => (
   <div className='navbar'>
-    <button><i className="fa fa-home" aria-hidden="true"></i>Home</button>
+    <button><i className='fa fa-home' aria-hidden='true'></i>Home</button>
   </div>
 );
 
