@@ -5,9 +5,7 @@
   src: url('../../media/fonts/SNES-italic.ttf');
 }
 
-$font-stack: 'SNES-italic', sans-serif;
-
-.header-container {
+.header-background {
   background-color: $charcoal;
   height: calc(180px + 4vh);
   padding: 15px 15px 25px 15px;
@@ -29,7 +27,7 @@ $font-stack: 'SNES-italic', sans-serif;
   }
 
   h1 {
-    font-family: $font-stack;
+    font-family: 'SNES-italic';
     font-size: calc(16px + 9vw);
     color: $red;
     margin: 10px;
