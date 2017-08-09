@@ -3,19 +3,19 @@
 .navbar {
   display: flex;
   vertical-align: middle;
-  height: calc(40px + 2vh);
-  background-color: $red;
+  height: calc(40px + 1.5vh);
+  background-color: $purple;
 
   button {
     border: 0;
-    padding: 0 20px 0 20px;
+    padding: 0 20px;
     margin-left: 6vw;
     cursor: pointer;
     font-size: 1.5rem;
-    color: #fff;
-    background-color: $dark-gray;
+    color: $antique;
+    background-color: $dark-purple;
     &:hover {
-      color: $charcoal;
+      background-color: $darkest-purple;
     }
   }
 
