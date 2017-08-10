@@ -17,8 +17,6 @@ const LandingPage = () => (
       icon='fa fa-gamepad'
     >
       <SearchableGamesList />
-      <p>testing</p>
-      <p>123</p>
     </HeaderContainer>
   </div>
 );

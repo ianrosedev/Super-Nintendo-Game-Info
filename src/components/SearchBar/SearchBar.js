@@ -4,7 +4,7 @@ import './SearchBar.css';
 const SearchBar = () => (
   <form className='search-bar'>
     <i className='fa fa-search' aria-hidden='true'></i>
-    <input type='search' placeholder='Find Games...' />
+    <input type='search' placeholder='Search Games...' />
     <button type='button'>Search</button>
   </form>
 );
