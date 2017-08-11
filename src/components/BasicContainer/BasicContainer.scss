@@ -1,0 +1,9 @@
+@import 'media/styles/_colors';
+
+.basic-container {
+  display: flex;
+  flex-direction: column;
+  background-color: $antique;
+  padding: 3vh 3vw;
+  font-size: 1.25rem;
+}
