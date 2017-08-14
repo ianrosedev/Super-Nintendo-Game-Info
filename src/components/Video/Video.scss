@@ -1,0 +1,17 @@
+.video {
+  width: 24vw;
+  height: 18vw;
+  margin-right: 5vw;
+  &:last-of-type {
+    margin: 0;
+  }
+}
+
+@media (max-width: 1050px) {
+  .video {
+    width: 36vh;
+    height: 24vh;
+    max-width: 90vw;
+    margin: 0 0 5vh 0
+  }
+}

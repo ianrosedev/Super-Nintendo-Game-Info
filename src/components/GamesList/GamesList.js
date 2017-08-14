@@ -1,13 +1,13 @@
 import React from 'react';
+import Game from '../Game/Game';
 import './GamesList.css';
 
 const GamesList = ({ data }) => {
   const games = data.map((game, i) => (
-    <li key={i}>
-      <a href='#change/me/later'>
-        {game}
-      </a>
-    </li>
+    <Game
+      key={i}
+      game={game}
+    />
   ));
 
   return (

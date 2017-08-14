@@ -1,0 +1,11 @@
+.videos-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1050px) {
+  .videos-list {
+    flex-direction: column;
+  }
+}

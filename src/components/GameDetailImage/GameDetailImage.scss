@@ -1,6 +1,14 @@
 .game-detail-image {
   float: right;
-  width: calc(280px + 12vw);
+  width: calc(240px + 14vw);
   height: auto;
   margin: 1vh 0 2vh 2vw;
+}
+
+@media (max-width: 700px) {
+  .game-detail-image {
+    float: none;
+    display: block;
+    margin: 2vh auto;
+  }
 }

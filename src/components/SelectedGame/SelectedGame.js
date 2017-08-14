@@ -1,5 +1,6 @@
 import React from 'react';
 import GameDetail from '../../containers/GameDetail/GameDetail';
+import SelectedVideosList from '../../containers/SelectedVideosList/SelectedVideosList';
 import BasicContainer from '../BasicContainer/BasicContainer';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import './SelectedGame.css';
@@ -13,8 +14,7 @@ const SelectedGame = () => (
       title='Videos'
       icon='fa fa-video-camera'
     >
-      <p>Testing</p>
-      <p>123</p>
+      <SelectedVideosList />
     </HeaderContainer>
   </div>
 );

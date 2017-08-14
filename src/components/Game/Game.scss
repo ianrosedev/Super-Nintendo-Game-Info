@@ -1,0 +1,14 @@
+@import 'media/styles/_colors';
+
+.game {
+  margin: 1vh 0;
+  list-style: none;
+  line-height: 1.75rem;
+
+  a {
+    color: $purple;
+    &:hover {
+      color: $light-purple;
+    }
+  }
+}
