@@ -1,3 +1,6 @@
+/* eslint-disable */
+/* Important to come back to!!! */
+
 import React from 'react';
 import './Video.css';
 
