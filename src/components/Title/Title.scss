@@ -1,10 +1,10 @@
-.game-detail-header {
+.title {
   display: inline;
   font-size: calc(24px + 1.6vw);
 }
 
 @media (max-width: 700px) {
-  .game-detail-header {
+  .title {
     display: block;
     margin: 0;
     text-align: center;
