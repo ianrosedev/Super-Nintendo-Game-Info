@@ -5,7 +5,7 @@
   width: 40vw;
   height: 40px;
   background-color: $light-gray;
-  margin: 1.5vh 0;
+  margin-bottom: 3vh;
   border: 1px solid $light-gray;
 
   i {
@@ -42,6 +42,5 @@
 @media (max-width: 1050px) {
   .search-bar {
     width: 100%;
-    margin: 1vh 0;
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import './Game.css';
 
-const Game = ({ game }) => (
+const Game = ({ children }) => (
   <li className='game'>
     <a href='#change/me/later'>
-      {game}
+      {children}
     </a>
   </li>
 );

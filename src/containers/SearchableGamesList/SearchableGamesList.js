@@ -1,5 +1,4 @@
 import React from 'react';
-import SearchBar from '../../components/SearchBar/SearchBar';
 import GamesList from '../../components/GamesList/GamesList';
 
 const FAKE_DATA = {
@@ -17,7 +16,6 @@ const SearchableGamesList = () => {
 
   return (
     <div>
-      <SearchBar />
       <GamesList data={games} />
     </div>
   );

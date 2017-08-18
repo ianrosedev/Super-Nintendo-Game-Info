@@ -1,19 +1,22 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 import Game from '../Game/Game';
 import './GamesList.css';
 
 const GamesList = ({ data }) => {
   const games = data.map((game, i) => (
-    <Game
-      key={i}
-      game={game}
-    />
+    <Game key={i}>
+      {game}
+    </Game>
   ));
 
   return (
-    <ul className='games-list'>
-      {games}
-    </ul>
+    <div className='games-list'>
+      <SearchBar />
+      <ul>
+        {games}
+      </ul>
+    </div>
   );
 };
 

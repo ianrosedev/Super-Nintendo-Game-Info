@@ -1,7 +1,5 @@
 import React from 'react';
-import Title from '../../components/Title/Title';
-import Text from '../../components/Text/Text';
-import Image from '../../components/Image/Image';
+import Article from '../../components/Article/Article';
 
 const FAKE_DATA = {
   title: 'Super Mario World',
@@ -11,16 +9,7 @@ const FAKE_DATA = {
   image: 'https://gamefaqs.akamaized.net/box/6/3/0/14630_front.jpg'
 };
 
-const GameDetail = () => {
-  const { title, text, image } = FAKE_DATA;
-
-  return (
-    <div>
-      <Title data={title} />
-      <Image data={image} />
-      <Text data={text} />
-    </div>
-  );
-};
-
+const GameDetail = () => (
+  <Article {...FAKE_DATA} />
+);
 export default GameDetail;
