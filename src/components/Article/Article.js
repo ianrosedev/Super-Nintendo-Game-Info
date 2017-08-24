@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from '../Title/Title';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
 
-const Article = ({ title, image, text }) => (
-  <div>
-    <Title data={title} />
-    <Image data={image} />
-    <Text data={text} />
-  </div>
-);
+class Article extends Component {
+  componentDidMount() {
+    this.props.fetchGame(111);
+  }
+
+  render() {
+    const { isFetching, title, image, text } = this.props;
+
+    return (
+      (isFetching) ? (
+        <p>LOADING...</p>
+      ) : (
+        <div>
+          <Title title={title} />
+          <Image image={image} />
+          <Text text={text} />
+        </div>
+      )
+    );
+  }
+}
 
 export default Article;

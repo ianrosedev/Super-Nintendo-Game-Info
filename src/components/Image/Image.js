@@ -1,10 +1,10 @@
 import React from 'react';
 import './Image.css';
 
-const Image = ({ data }) => (
+const Image = ({ image }) => (
   <img
     className='image'
-    src={data}
+    src={image}
     alt='TEST! Change dynamically later!'
   />
 );
