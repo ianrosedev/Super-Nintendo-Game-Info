@@ -1,7 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 import Title from '../Title/Title';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
+
+const propTypes = {
+  fetchGame: PropTypes.func.isRequired,
+  isFetching: PropTypes.bool.isRequired,
+  id: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired
+};
 
 class Article extends Component {
   componentDidMount() {
@@ -13,7 +24,7 @@ class Article extends Component {
 
     return (
       (isFetching) ? (
-        <p>LOADING...</p>
+        <Spinner />
       ) : (
         <div>
           <Title title={title} />
@@ -24,5 +35,7 @@ class Article extends Component {
     );
   }
 }
+
+Article.propTypes = propTypes;
 
 export default Article;

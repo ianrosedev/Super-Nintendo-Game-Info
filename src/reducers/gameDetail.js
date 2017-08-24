@@ -35,9 +35,9 @@ export default (state = initialState, action) => {
         ...state,
         isFetching: false,
         id: action.id,
-        title: action.data.title,
-        image: action.data.image,
-        text: action.data.text
+        title: action.title,
+        image: action.image,
+        text: action.text
       }
     default:
       return state;
@@ -53,12 +53,14 @@ export const requestGame = (id) => ({
 export const receiveGame = (id, data) => ({
   type: RECEIVE_GAME,
   id,
-  data
+  title: data.title,
+  image: data.image,
+  text: data.text
 });
 
 // Thunk Action Creators
-export function fetchGame(id) {
-  return function(dispatch) {
+export const fetchGame = (id) => {
+  return (dispatch) => {
     dispatch(requestGame(id));
 
     // Simulated API call
