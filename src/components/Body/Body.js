@@ -7,7 +7,7 @@ import './Body.css';
 
 const Body = () => (
   <div className='body'>
-    <LandingPage />
+    <SelectedGame />
   </div>
 );
 

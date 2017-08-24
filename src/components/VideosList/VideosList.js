@@ -1,20 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import Spinner from '../Spinner/Spinner';
 import Video from '../Video/Video';
 import './VideosList.css';
 
-const VideosList = ({ data }) => {
-  const videos = data.map((videoId, i) => (
-    <Video
-      key={i}
-      videoId={videoId}
-    />
-  ));
-
-  return (
-    <div className='videos-list'>
-      {videos}
-    </div>
-  );
+const propTypes = {
+  isFetching: PropTypes.bool.isRequired,
+  id: PropTypes.number,
+  videos: PropTypes.array.isRequired
 };
+
+class VideosList extends Component {
+  componentDidMount() {
+    this.props.fetchVideos(222);
+  }
+
+  render() {
+    const { isFetching, videos } = this.props;
+
+    const selectedVideos = videos.map((video, i) => (
+      <Video
+        key={i}
+        video={video}
+      />
+    ));
+
+    return (
+      (isFetching) ? (
+        <Spinner />
+      ) : (
+        <div className='videos-list'>
+          {selectedVideos}
+        </div>
+      )
+    );
+  }
+}
+
+VideosList.propTypes = propTypes;
 
 export default VideosList;

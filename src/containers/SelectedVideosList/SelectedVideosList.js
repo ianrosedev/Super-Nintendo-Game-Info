@@ -1,20 +1,18 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { fetchVideos } from '../../reducers/selectedVideosList';
 import VideosList from '../../components/VideosList/VideosList';
 
-const FAKE_DATA = {
-  videos: [
-    'AqturoCh5lM',
-    'j8YFxB6rYIo',
-    'JYRsmhzLx30'
-  ]
+const mapStateToProps = ({ selectedVideosList }) => ({
+  ...selectedVideosList
+});
+
+const mapDispatchToProps = {
+  fetchVideos
 };
 
-const SelectedVideosList = () => {
-  const { videos } = FAKE_DATA;
-
-  return (
-    <VideosList data={videos} />
-  );
-};
+const SelectedVideosList = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(VideosList);
 
 export default SelectedVideosList;
