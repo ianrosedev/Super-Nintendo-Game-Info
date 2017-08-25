@@ -8,7 +8,7 @@ import Image from '../Image/Image';
 const propTypes = {
   fetchGame: PropTypes.func.isRequired,
   isFetching: PropTypes.bool.isRequired,
-  id: PropTypes.number,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
@@ -16,7 +16,7 @@ const propTypes = {
 
 class Article extends Component {
   componentDidMount() {
-    this.props.fetchGame(111);
+    this.props.fetchGame('Super_Mario_World');
   }
 
   render() {

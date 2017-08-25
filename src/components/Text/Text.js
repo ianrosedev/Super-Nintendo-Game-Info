@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MoreButton from '../MoreButton/MoreButton'
 import './Text.css';
 
 const propTypes = {
@@ -8,13 +7,7 @@ const propTypes = {
 };
 
 const Text = ({ text }) => (
-  <div>
-    <p className='text' dangerouslySetInnerHTML={{ __html: text }}></p>
-    <MoreButton
-      arrowDirection='down'
-      text='Keep Reading'
-    />
-  </div>
+  <div className='text' dangerouslySetInnerHTML={{ __html: text }}></div>
 );
 
 Text.propTypes = propTypes;

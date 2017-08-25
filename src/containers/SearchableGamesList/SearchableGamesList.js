@@ -1,24 +1,11 @@
 import React from 'react';
 import GamesList from '../../components/GamesList/GamesList';
+import fullGamesList from '../../static/fullGamesList';
 
-const FAKE_DATA = {
-  games: [
-    'Aladdin',
-    'Street Fighter 2',
-    'Super Mario World',
-    'Metroid',
-    'Zelda'
-  ]
-};
-
-const SearchableGamesList = () => {
-  const { games } = FAKE_DATA;
-
-  return (
-    <div>
-      <GamesList data={games} />
-    </div>
-  );
-};
+const SearchableGamesList = () => (
+  <div>
+    <GamesList list={fullGamesList} />
+  </div>
+);
 
 export default SearchableGamesList;
