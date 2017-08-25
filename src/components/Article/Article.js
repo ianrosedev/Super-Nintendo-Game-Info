@@ -10,25 +10,17 @@ const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired
 };
 
-const testGame = `The Legend of Zelda: A Link to the Past`;
-const testGameImage = testGame
-                        .toLowerCase()
-                        .replace(/ /g, '_')
-                        .replace(/:/g, '_-')
-                        .replace(/'/g, '');
-
-console.log(testGameImage);
-
 class Article extends Component {
   componentDidMount() {
-    this.props.fetchGame(testGame);
+    this.props.fetchGame(this.props.id);
   }
 
   render() {
-    const { isFetching, title, text } = this.props;
+    const { isFetching, title, image, text } = this.props;
 
     return (
       (isFetching) ? (
@@ -36,8 +28,7 @@ class Article extends Component {
       ) : (
         <div>
           <Title title={title} />
-          <Image
-            image={require('../../static/coverArtwork/' + testGameImage + '.jpg')} />
+          <Image image={require(`../../static/coverArtwork/${image}.jpg`)} />
           <Text text={text} />
         </div>
       )

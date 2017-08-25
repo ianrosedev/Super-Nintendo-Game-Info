@@ -2,11 +2,25 @@
 export const REQUEST_GAME = 'REQUEST_GAME';
 export const RECEIVE_GAME = 'RECEIVE_GAME';
 
+// Helpers
+const createImageURL = (id) => {
+  return (
+    id.toLowerCase()
+      .replace(/ /g, '_')
+      .replace(/:/g, '_-')
+      .replace(/'/g, '')
+  );
+};
+
+// Featured Game
+const featuredGame = 'The Legend of Zelda: A Link to the Past';
+
 // Initial State
 const initialState = {
   isFetching: false,
-  id: '',
+  id: featuredGame,
   title: '',
+  image: createImageURL(featuredGame),
   text: ''
 };
 
@@ -25,6 +39,7 @@ export default (state = initialState, action) => {
         isFetching: false,
         id: action.id,
         title: action.title,
+        image: action.image,
         text: action.text
       }
     default:
@@ -42,6 +57,7 @@ export const receiveGame = (id, data) => ({
   type: RECEIVE_GAME,
   id,
   title: data.title,
+  image: createImageURL(id),
   text: data.text
 });
 

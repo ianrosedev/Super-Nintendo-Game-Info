@@ -174,7 +174,7 @@ const fullGamesList = [
     "Beavis and Butt-head"
   ],
   [
-    "Bébé's Kids"
+    "Bebe's Kids"
   ],
   [
     "Beethoven: The Ultimate Canine Caper"
