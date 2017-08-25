@@ -11,7 +11,9 @@ const propTypes = {
 const GamesList = ({ list }) => {
   const games = list.map((game, i) => (
     <Game key={i}>
-      {game}
+      <a href='#change/me/later'>
+        {game}
+      </a>
     </Game>
   ));
 

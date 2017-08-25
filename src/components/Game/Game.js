@@ -3,9 +3,7 @@ import './Game.css';
 
 const Game = ({ children }) => (
   <li className='game'>
-    <a href='#change/me/later'>
-      {children}
-    </a>
+    {children}
   </li>
 );
 

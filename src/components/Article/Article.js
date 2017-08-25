@@ -28,7 +28,7 @@ class Article extends Component {
       ) : (
         <div>
           <Title title={title} />
-          <Image image={require(`../../static/coverArtwork/${image}.jpg`)} />
+          <Image image={require(`../../media/images/coverArtwork/${image}.jpg`)} />
           <Text text={text} />
         </div>
       )
