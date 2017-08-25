@@ -7,8 +7,7 @@ const initialState = {
   isFetching: false,
   id: '',
   title: '',
-  text: '',
-  image: ''
+  text: ''
 };
 
 // Reducer
@@ -26,7 +25,6 @@ export default (state = initialState, action) => {
         isFetching: false,
         id: action.id,
         title: action.title,
-        image: action.image,
         text: action.text
       }
     default:
@@ -44,7 +42,6 @@ export const receiveGame = (id, data) => ({
   type: RECEIVE_GAME,
   id,
   title: data.title,
-  image: data.image,
   text: data.text
 });
 
