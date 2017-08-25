@@ -1467,7 +1467,7 @@ const fullGamesList = [
     "Rampart"
   ],
   [
-    "Ranma ½: Hard Battle"
+    "Ranma 1-2: Hard Battle"
   ],
   [
     "Rap Jam: Volume One"
@@ -1821,7 +1821,7 @@ const fullGamesList = [
     "Super Castlevania IV"
   ],
   [
-    "Super Chase H.Q."
+    "Super Chase HQ"
   ],
   [
     "Super Conflict"
