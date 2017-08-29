@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { stringToURL } from '../../Helpers/Helpers'
+import { Link } from 'react-router-dom';
+import { stringToURL } from '../../Helpers/Strings'
 import SearchBar from '../SearchBar/SearchBar';
 import Game from '../Game/Game';
 import './SearchableGamesList.css';
@@ -10,15 +11,15 @@ const propTypes = {
   setCurrentGame: PropTypes.func.isRequired
 };
 
-const GamesList = ({ fullGamesList }) => {
+const GamesList = ({ fullGamesList, setCurrentGame }) => {
   const games = fullGamesList.map((game, i) => (
     <Game key={i}>
-      <a
-        href='change/me/later'
-        /* onClick={setCurrentGame(this games name)} */
+      <Link
+        to={stringToURL(game)}
+        onClick={() => setCurrentGame(game)}
       >
         {game}
-      </a>
+      </Link>
     </Game>
   ));
 

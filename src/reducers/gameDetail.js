@@ -1,4 +1,4 @@
-import { createImageLink } from '../Helpers/Helpers';
+import { createImageLink } from '../Helpers/Strings';
 
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';

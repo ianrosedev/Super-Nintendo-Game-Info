@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => (
   <div className='navbar'>
     <span className='nav-link'>
-      <a href='#change/me/later'>
+      <Link to='/'>
         <i className='fa fa-home' aria-hidden='true'></i>
         Home
-      </a>
+      </Link>
     </span>
   </div>
 );
