@@ -1,27 +1,55 @@
+import { createImageLink } from '../Helpers/Helpers';
+
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';
 export const RECEIVE_GAME = 'RECEIVE_GAME';
 
-// Helpers
-const createImageURL = (id) => {
-  return (
-    id.toLowerCase()
-      .replace(/ /g, '_')
-      .replace(/:/g, '_-')
-      .replace(/'/g, '')
-  );
-};
+// Action Creators
+export const requestGame = () => ({
+  type: REQUEST_GAME,
+  isFetching: true
+});
 
-// Featured Game
-const featuredGame = 'The Legend of Zelda: A Link to the Past';
+export const receiveGame = (response) => ({
+  type: RECEIVE_GAME,
+  isFetching: false,
+  title: response.title,
+  text: response.text,
+  image: response.image
+});
+
+// Thunk Action Creators
+export const fetchGame = (game) => {
+  return (dispatch, getState) => {
+    const currentGame = game || getState().gamesList.currentGame;
+
+    dispatch(requestGame());
+
+    return fetch('https://en.wikipedia.org/w/api.php?' +
+                 '&action=query' +
+                 '&titles=' + encodeURIComponent(currentGame) +
+                 '&prop=extracts' +
+                 '&exintro=' +
+                 '&redirects=1' +
+                 '&format=json' +
+                 '&origin=*')
+      .then(response => response.json())
+      .then(
+        response => dispatch(receiveGame({
+          title: response.query.pages[Object.keys(response.query.pages)[0]].title,
+          text: response.query.pages[Object.keys(response.query.pages)[0]].extract,
+          image: createImageLink(currentGame)
+        }))
+      );
+  };
+};
 
 // Initial State
 const initialState = {
   isFetching: false,
-  id: featuredGame,
   title: '',
-  image: createImageURL(featuredGame),
-  text: ''
+  text: '',
+  image: 'not_found'
 };
 
 // Reducer
@@ -30,56 +58,17 @@ export default (state = initialState, action) => {
     case REQUEST_GAME:
       return {
         ...state,
-        isFetching: true,
-        id: action.id
-      }
+        isFetching: action.isFetching
+      };
     case RECEIVE_GAME:
       return {
         ...state,
-        isFetching: false,
-        id: action.id,
+        isFetching: action.isFetching,
         title: action.title,
-        image: action.image,
-        text: action.text
-      }
+        text: action.text,
+        image: action.image
+      };
     default:
       return state;
   }
-};
-
-// Action Creators
-export const requestGame = (id) => ({
-  type: REQUEST_GAME,
-  id
-});
-
-export const receiveGame = (id, data) => ({
-  type: RECEIVE_GAME,
-  id,
-  title: data.title,
-  image: createImageURL(id),
-  text: data.text
-});
-
-// Thunk Action Creators
-export const fetchGame = (id) => {
-  return (dispatch) => {
-    dispatch(requestGame(id));
-
-    return fetch('https://en.wikipedia.org/w/api.php?' +
-                 '&action=query' +
-                 '&titles=' + id +
-                 '&prop=extracts' +
-                 '&exintro=' +
-                 '&redirects=1' +
-                 '&format=json' +
-                 '&origin=*')
-      .then(response => response.json())
-      .then(
-        data => dispatch(receiveGame(id, {
-          title: data.query.pages[Object.keys(data.query.pages)[0]].title,
-          text: data.query.pages[Object.keys(data.query.pages)[0]].extract
-        }))
-      );
-  };
 };
