@@ -1,25 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { stringToURL } from '../../Helpers/Strings'
+import fullGamesList from '../../static/fullGamesList';
 import SearchBar from '../SearchBar/SearchBar';
 import Game from '../Game/Game';
+import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 import './SearchableGamesList.css';
 
-const propTypes = {
-  fullGamesList: PropTypes.array.isRequired,
-  setCurrentGame: PropTypes.func.isRequired
-};
-
-const GamesList = ({ fullGamesList, setCurrentGame }) => {
+const GamesList = () => {
   const games = fullGamesList.map((game, i) => (
     <Game key={i}>
-      <Link
-        to={stringToURL(game)}
-        onClick={() => setCurrentGame(game)}
-      >
+      <CurrentGameLink link={game}>
         {game}
-      </Link>
+      </CurrentGameLink>
     </Game>
   ));
 
@@ -32,7 +23,5 @@ const GamesList = ({ fullGamesList, setCurrentGame }) => {
     </div>
   );
 };
-
-GamesList.propTypes = propTypes;
 
 export default GamesList;

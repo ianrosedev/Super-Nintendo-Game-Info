@@ -21,7 +21,7 @@ export const receiveGame = (response) => ({
 // Thunk Action Creators
 export const fetchGame = (game) => {
   return (dispatch, getState) => {
-    const currentGame = game || getState().gamesList.currentGame;
+    const currentGame = game || getState().currentGame.currentGame;
 
     dispatch(requestGame());
 

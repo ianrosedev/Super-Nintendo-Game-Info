@@ -9,5 +9,7 @@ export const createImageLink = (string) => (
 export const stringToURL = (string) => (
   string.toLowerCase()
     .replace(/ /g, '-')
+    .replace(/:/g, '')
     .replace(/!/g, '')
+    .replace(/&/g, 'and')
 );

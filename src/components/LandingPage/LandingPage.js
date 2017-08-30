@@ -1,7 +1,7 @@
 import React from 'react';
 import GameDetail from '../../containers/GameDetail/GameDetail';
-import GamesList from '../../containers/GamesList/GamesList';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
+import SearchableGamesList from '../SearchableGamesList/SearchableGamesList';
 import './LandingPage.css';
 
 const LandingPage = () => (
@@ -16,7 +16,7 @@ const LandingPage = () => (
       title='Full Game Listing'
       icon='fa fa-gamepad'
     >
-      <GamesList />
+      <SearchableGamesList />
     </HeaderContainer>
   </div>
 );

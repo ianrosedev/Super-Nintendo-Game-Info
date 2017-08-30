@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import gamesList from './gamesList';
+import currentGame from './currentGame';
 import gameDetail from './gameDetail';
 import selectedVideosList from './selectedVideosList';
 
 export const rootReducer = combineReducers({
-  gamesList,
+  currentGame,
   gameDetail,
   selectedVideosList
 });

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { featuredGame } from '../../static/featuredGame';
 import PropTypes from 'prop-types';
+import { featuredGame } from '../../static/featuredGame';
 import Spinner from '../Spinner/Spinner';
 import Title from '../Title/Title';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
+import MoreButton from '../MoreButton/MoreButton';
+import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 
 const propTypes = {
   isLandingPage: PropTypes.bool,
@@ -17,11 +19,9 @@ const propTypes = {
 
 class Article extends Component {
   componentDidMount() {
-    (this.props.isLandingPage) ? (
-      this.props.fetchGame(featuredGame)
-    ) : (
-      this.props.fetchGame()
-    )
+    const { isLandingPage, fetchGame } = this.props;
+
+    isLandingPage ? fetchGame(featuredGame) : fetchGame()
   }
 
   render() {
@@ -35,6 +35,15 @@ class Article extends Component {
           <Title title={title} />
           <Image image={require(`../../media/images/coverArtwork/${image}.jpg`)} />
           <Text text={text} />
+          {(this.props.isLandingPage) ? (
+            <MoreButton arrowDirection='right'>
+              <CurrentGameLink link={featuredGame}>
+                See More
+              </CurrentGameLink>
+            </MoreButton>
+          ) : (
+            null
+          )}
         </div>
       )
     );

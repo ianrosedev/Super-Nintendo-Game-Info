@@ -1,12 +1,10 @@
 import React from 'react';
 import './MoreButton.css';
 
-const MoreButton = ({ arrowDirection, text }) => (
+const MoreButton = ({ arrowDirection, children }) => (
   <div className='more-button'>
-    <button type='button'>
-      <i className={`fa fa-arrow-${arrowDirection}`}></i>
-      {text}
-    </button>
+    <i className={`fa fa-arrow-${arrowDirection}`}></i>
+    {children}
   </div>
 );
 

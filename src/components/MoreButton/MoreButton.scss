@@ -1,22 +1,24 @@
 @import 'media/styles/_colors';
 
 .more-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 2vh 2vw;
-  text-align: center;
+  color: $red;
+  &:hover {
+    color: $dark-red;
+  }
 
-  button {
-    border: 0;
-    padding: 0;
+  a {
     background-color: inherit;
-    font-size: 1.75rem;
-    cursor: pointer;
-    color: $red;
-    &:hover {
-      color: $dark-red;
-    }
+    color: inherit;
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: bold;
   }
 
   i {
-    margin-right: 5px;
+    margin-right: 4px !important;
   }
 }
