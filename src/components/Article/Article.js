@@ -33,7 +33,10 @@ class Article extends Component {
       ) : (
         <div>
           <Title title={title} />
-          <Image image={require(`../../media/images/coverArtwork/${image}.jpg`)} />
+          <Image
+            image={require(`../../media/images/coverArtwork/${image}.jpg`)}
+            alt={title + ' box artwork'} 
+          />
           <Text text={text} />
           {(this.props.isLandingPage) ? (
             <MoreButton arrowDirection='right'>
