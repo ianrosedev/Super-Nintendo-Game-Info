@@ -6,7 +6,6 @@ import './VideosList.css';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  id: PropTypes.number,
   videos: PropTypes.array.isRequired
 };
 
