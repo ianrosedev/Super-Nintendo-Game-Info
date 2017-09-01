@@ -1,0 +1,40 @@
+@import 'media/styles/_colors';
+
+.games-list {
+  margin-bottom: 3vh;
+
+  ul {
+    padding: 0;
+  }
+
+  .search-bar {
+    display: flex;
+    width: 40vw;
+    height: 40px;
+    background-color: $light-gray;
+    margin-bottom: 3vh;
+    border: 1px solid $light-gray;
+
+    i {
+      float: left;
+      width: auto;
+      height: 40px;
+      margin: 0 !important;
+      padding: 6px 5px 0 5px;
+      font-size: 1.5rem;
+    }
+
+    input {
+      float: left;
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  .search-bar {
+    width: 100%;
+  }
+}

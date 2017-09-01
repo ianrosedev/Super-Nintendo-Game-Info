@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { stringToURL } from '../../Helpers/Strings';
+import { stringToURL } from '../../helpers/strings';
 
 const propTypes = {
   link: PropTypes.string.isRequired,

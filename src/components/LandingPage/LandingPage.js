@@ -1,7 +1,7 @@
 import React from 'react';
 import GameDetail from '../../containers/GameDetail/GameDetail';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
-import SearchableGamesList from '../SearchableGamesList/SearchableGamesList';
+import SearchableGamesList from '../../containers/SearchableGamesList/SearchableGamesList';
 import './LandingPage.css';
 
 const LandingPage = () => (
