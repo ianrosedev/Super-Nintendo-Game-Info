@@ -35,7 +35,7 @@ class Article extends Component {
           <Title title={title} />
           <Image
             image={require(`../../media/images/coverArtwork/${image}.jpg`)}
-            alt={title + ' box artwork'} 
+            alt={title + ' box artwork'}
           />
           <Text text={text} />
           {(this.props.isLandingPage) ? (
