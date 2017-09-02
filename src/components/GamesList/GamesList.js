@@ -7,10 +7,11 @@ import './GamesList.css';
 
 const propTypes = {
   query: PropTypes.string.isRequired,
-  updateQuery: PropTypes.func.isRequired
+  updateQuery: PropTypes.func.isRequired,
+  clearQuery: PropTypes.func.isRequired
 };
 
-const GamesList = ({ query, updateQuery }) => {
+const GamesList = ({ query, updateQuery, clearQuery }) => {
   const filteredGamesList = fullGamesList.filter(
     game => game.toLowerCase().includes(query.toLowerCase())
   );
@@ -33,6 +34,12 @@ const GamesList = ({ query, updateQuery }) => {
           value={query}
           onChange={event => updateQuery(event)}
         />
+        <button
+          type='button'
+          onMouseDown={clearQuery}
+        >
+          Clear
+        </button>
       </div>
       <ul>
         {games}

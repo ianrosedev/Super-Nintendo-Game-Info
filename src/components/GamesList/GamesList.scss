@@ -19,7 +19,7 @@
     i {
       float: left;
       width: auto;
-      height: 40px;
+      height: inherit;
       margin: 0 !important;
       padding: 6px 5px 0 5px;
       font-size: 1.5rem;
@@ -28,14 +28,30 @@
     input {
       float: left;
       width: 100%;
-      height: 40px;
+      height: inherit;
       padding: 0 10px;
+    }
+
+    button {
+      float: right;
+      width: 110px;
+      height: inherit;
+      background-color: $red;
+      border: 0;
+      padding: 0;
+      color: $white;
+      cursor: pointer;
+      &:hover {
+        background-color: $dark-red;
+      }
     }
   }
 }
 
 @media (max-width: 1050px) {
-  .search-bar {
-    width: 100%;
+  .games-list {
+    .search-bar {
+      width: 100%;
+    }
   }
 }

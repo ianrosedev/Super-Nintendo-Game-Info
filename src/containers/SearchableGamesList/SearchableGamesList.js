@@ -1,6 +1,6 @@
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { updateQuery } from '../../reducers/searchableGamesList';
+import { updateQuery, clearQuery } from '../../reducers/searchableGamesList';
 import GamesList from '../../components/GamesList/GamesList';
 
 const mapStateToProps = ({ searchableGamesList }) => ({
@@ -8,7 +8,8 @@ const mapStateToProps = ({ searchableGamesList }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateQuery: bindActionCreators(updateQuery, dispatch)
+  updateQuery: bindActionCreators(updateQuery, dispatch),
+  clearQuery: bindActionCreators(clearQuery, dispatch)
 });
 
 const SearchableGamesList = connect(
