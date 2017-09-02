@@ -12,6 +12,7 @@ const LandingPage = () => (
     >
       <GameDetail isLandingPage={true} />
     </HeaderContainer>
+    <span id='full-games-list' aria-hidden='true'></span>
     <HeaderContainer
       title='Full Game Listing'
       icon='fa fa-gamepad'

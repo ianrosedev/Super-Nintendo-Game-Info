@@ -1,6 +1,7 @@
 @import 'media/styles/_colors';
 
 .games-list {
+  min-height: 78vh;
   margin-bottom: 3vh;
 
   ul {
@@ -28,7 +29,7 @@
       float: left;
       width: 100%;
       height: 40px;
-      padding: 10px;
+      padding: 0 10px;
     }
   }
 }
