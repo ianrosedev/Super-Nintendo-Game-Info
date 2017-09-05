@@ -15,7 +15,6 @@ export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 // Initial State
 const initialState = {
   isFetching: false,
-  id: null,
   videos: []
 };
 
@@ -56,7 +55,7 @@ export const receiveVideos = (id, data) => ({
 export const fetchVideos = (id) => {
   return (dispatch) => {
     dispatch(requestVideos(id));
-    
+
     // Simulated API call
     setTimeout(() => dispatch(receiveVideos(id, FAKE_DATA)), 1000);
   };

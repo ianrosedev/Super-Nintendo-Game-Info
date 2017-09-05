@@ -6,7 +6,8 @@ import './VideosList.css';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  videos: PropTypes.array.isRequired
+  videos: PropTypes.array.isRequired,
+  fetchVideos: PropTypes.func.isRequired
 };
 
 class VideosList extends Component {
