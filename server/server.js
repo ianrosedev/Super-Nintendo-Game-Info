@@ -1,13 +1,22 @@
 import express from 'express';
-import bodyParser from 'body-parser';
-import compression from 'compression';
+import youTubeSearch from 'youtube-search';
+import { youTubeKey } from './keys';
 
 const app = express();
 
-app.use(compression());
+app.get('/videos/:game', (request, response) => {
+  youTubeSearch(request.params.game + ' snes',
+    { key: youTubeKey, maxResults: 3 },
+    (youTubeError, youTubeResponse) => {
+      if (youTubeError) return console.log(youTubeError);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+      const videos = youTubeResponse.map(
+        video => video.link.substr(video.link.indexOf('=') + 1)
+      );
+
+      response.send(videos);
+  });
+});
 
 app.set('port', (process.env.PORT || 3001));
 

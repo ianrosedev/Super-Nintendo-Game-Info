@@ -12,7 +12,7 @@ const propTypes = {
 
 class VideosList extends Component {
   componentDidMount() {
-    this.props.fetchVideos(222);
+    this.props.fetchVideos();
   }
 
   render() {

@@ -1,16 +1,32 @@
-// FAKE DATA FOR TESTING!!!
-// Remove when proper API wired up.
-const FAKE_DATA = {
-  videos: [
-    'AqturoCh5lM',
-    'j8YFxB6rYIo',
-    'JYRsmhzLx30'
-  ]
-};
-
 // Constants
 export const REQUEST_VIDEOS = 'REQUEST_VIDEOS';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
+
+// Action Creators
+export const requestVideos = () => ({
+  type: REQUEST_VIDEOS,
+  isFetching: true
+});
+
+export const receiveVideos = (videos) => ({
+  type: RECEIVE_VIDEOS,
+  isFetching: false,
+  videos: videos
+});
+
+// Thunk Action Creators
+export const fetchVideos = () => {
+  return (dispatch, getState) => {
+    const currentGame = getState().currentGame.currentGame;
+
+    dispatch(requestVideos());
+
+    return fetch(`/videos/${currentGame}`)
+      .then(response => response.json())
+      .then(response => dispatch(receiveVideos(response)));
+  };
+};
+
 
 // Initial State
 const initialState = {
@@ -24,39 +40,15 @@ export default (state = initialState, action) => {
     case REQUEST_VIDEOS:
       return {
         ...state,
-        isFetching: true,
-        id: action.id
+        isFetching: action.isFetching,
       }
     case RECEIVE_VIDEOS:
       return {
         ...state,
-        isFetching: false,
-        id: action.id,
+        isFetching: action.isFetching,
         videos: action.videos
       }
     default:
       return state;
   }
-};
-
-// Action Creators
-export const requestVideos = (id) => ({
-  type: REQUEST_VIDEOS,
-  id
-});
-
-export const receiveVideos = (id, data) => ({
-  type: RECEIVE_VIDEOS,
-  id,
-  videos: data.videos
-});
-
-// Thunk Action Creators
-export const fetchVideos = (id) => {
-  return (dispatch) => {
-    dispatch(requestVideos(id));
-
-    // Simulated API call
-    setTimeout(() => dispatch(receiveVideos(id, FAKE_DATA)), 1000);
-  };
 };
