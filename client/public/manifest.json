@@ -1,5 +1,5 @@
 {
-  "short_name": "Game Info",
+  "short_name": "SNES Game Info",
   "name": "Super Nintendo Game Info",
   "icons": [
     {
@@ -10,6 +10,6 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#4f43ae",
+  "background_color": "#faebd7"
 }
