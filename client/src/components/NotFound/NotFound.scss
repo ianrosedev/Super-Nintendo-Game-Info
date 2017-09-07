@@ -1,0 +1,12 @@
+@import 'media/styles/_colors';
+
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 54vh;
+  margin: 0 8vw;
+  color: $purple;
+  text-align: center;
+}

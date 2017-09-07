@@ -11,7 +11,7 @@ const propTypes = {
 
 const GameLink = ({ link, setCurrentGame, children }) => (
   <Link
-    to={stringToURL(link)}
+    to={'/games/' +stringToURL(link)}
     onClick={() => setCurrentGame(link)}
   >
     {children}
