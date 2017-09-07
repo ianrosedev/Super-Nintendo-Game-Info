@@ -1,6 +1,6 @@
 import express from 'express';
 import youTubeSearch from 'youtube-search';
-import { youTubeKey } from './keys';
+import { youTubeKey } from './helpers/keys';
 
 const app = express();
 
