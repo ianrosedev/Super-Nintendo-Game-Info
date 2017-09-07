@@ -1,4 +1,5 @@
 @import 'media/styles/_colors';
+@import 'media/styles/_sizes';
 
 .games-list {
   min-height: 78vh;
@@ -10,7 +11,8 @@
 
   .search-bar {
     display: flex;
-    width: 40vw;
+    width: 45vw;
+    max-width: 620px;
     height: 40px;
     background-color: $light-gray;
     margin-bottom: 3vh;
@@ -48,10 +50,11 @@
   }
 }
 
-@media (max-width: 1050px) {
+@include tablet-down {
   .games-list {
     .search-bar {
       width: 100%;
+      max-width: none;
     }
   }
 }

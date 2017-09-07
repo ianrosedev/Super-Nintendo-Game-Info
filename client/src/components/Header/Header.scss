@@ -1,4 +1,5 @@
 @import 'media/styles/_colors';
+@import 'media/styles/_sizes';
 
 @font-face {
   font-family: 'SNES-italic';
@@ -35,7 +36,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@include tablet-down {
   .header {
     img {
       display: none;
