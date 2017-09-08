@@ -11,8 +11,9 @@
 
 @include tablet-down {
   .video {
-    width: calc(50px + 32vh);
-    height: calc(50px + 18vh);
+    width: calc(180px + 32vw);
+    max-width: 85vw;
+    height: calc(180px + 18vw);
     margin: 0 0 5vh 0
   }
 }
