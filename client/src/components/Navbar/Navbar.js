@@ -6,21 +6,10 @@ const Navbar = () => (
   <div className='navbar'>
     <span className='nav-link'>
       {(window.location.pathname === '/') ? (
-        <Link
-          to='#full-games-list'
-          onClick={
-            () => {
-              document.getElementById('full-games-list')
-                .scrollIntoView({
-                  behavior: 'smooth',
-                  block: 'start'
-                })
-            }
-          }
-        >
+        <a href='#full-games-list'>
           <i className='fa fa-gamepad' aria-hidden='true'></i>
           Full List
-        </Link>
+        </a>
       ) : (
         <Link to='/'>
           <i className='fa fa-home' aria-hidden='true'></i>
