@@ -1,5 +1,9 @@
 @import 'media/styles/_colors';
 @import 'media/styles/_sizes';
+@font-face {
+  font-family: 'SNES-italic';
+  src: url('../../media/fonts/SNES-italic.ttf');
+}
 
 .footer {
   display: flex;
@@ -7,15 +11,18 @@
   height: 56px;
   padding: 0 5vw;
   background-color: $black;
-  font-size: 1.25rem;
 
   span {
     width: 100%;
+    font-family: 'SNES-italic';
+    font-size: 1.8rem;
     color: $red;
 
     a {
       float: right;
       margin-right: 3vw;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-size: 1.5rem;
       color: $white;
       text-decoration: none;
     }
