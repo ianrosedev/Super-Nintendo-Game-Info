@@ -1,4 +1,5 @@
 import { createImageLink } from '../helpers/strings';
+import history from '../history';
 
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';
@@ -22,6 +23,8 @@ export const receiveGame = (response) => ({
 export const fetchGame = (game) => {
   return (dispatch, getState) => {
     const currentGame = game || getState().currentGame.currentGame;
+
+    if (!currentGame) return history.push('/');
 
     dispatch(requestGame());
 

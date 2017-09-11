@@ -9,7 +9,7 @@ const Body = () => (
   <div className='body'>
     <Switch>
       <Route exact path='/' component={LandingPage} />
-      <Route path='/games/:game' component={SelectedGame} />
+      <Route path='/:game' component={SelectedGame} />
       <Route component={NotFound} />
     </Switch>
   </div>

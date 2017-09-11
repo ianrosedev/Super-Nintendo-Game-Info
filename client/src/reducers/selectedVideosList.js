@@ -19,6 +19,8 @@ export const fetchVideos = () => {
   return (dispatch, getState) => {
     const currentGame = getState().currentGame.currentGame;
 
+    if (!currentGame) return;
+
     dispatch(requestVideos());
 
     return fetch(`/videos/${currentGame}`)
