@@ -1,5 +1,4 @@
 @import 'media/styles/_colors';
-@import 'media/styles/_sizes';
 @font-face {
   font-family: 'SNES-italic';
   src: url('../../media/fonts/SNES-italic.ttf');
@@ -14,23 +13,18 @@
 
   span {
     width: 100%;
+    margin-top: 3px;
     font-family: 'SNES-italic';
     font-size: 1.8rem;
     color: $red;
 
     a {
       float: right;
-      margin-right: 3vw;
+      margin: 2px 3vw 0 0;
       font-family: 'Source Sans Pro', sans-serif;
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: $white;
       text-decoration: none;
     }
-  }
-}
-
-@include tablet-down {
-  .footer {
-    padding: 0 2vw;
   }
 }
