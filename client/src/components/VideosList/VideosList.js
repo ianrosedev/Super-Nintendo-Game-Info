@@ -17,7 +17,6 @@ class VideosList extends Component {
 
   render() {
     const { isFetching, videos } = this.props;
-
     const selectedVideos = videos.map((video, i) => (
       <Video
         key={i}
