@@ -37,50 +37,53 @@ describe('Article', () => {
     article();
   });
 
-  describe('when `isLandingPage` is false', () => {
-    it('does not render `MoreButton`', () => {
-      expect(article().find(MoreButton).length).toBe(0);
+  describe('when `isLandingPage`', () => {
+    describe('is false', () => {
+      it('does not render `MoreButton`', () => {
+        expect(article().find(MoreButton).length).toBe(0);
+      });
+    });
+
+    describe('is true', () => {
+      beforeEach(() => {
+        props.isLandingPage = true;
+      });
+
+      it('always renders `MoreButton`', () => {
+        expect(article().find(MoreButton).length).toBe(1);
+      });
     });
   });
 
-  describe('when `isLandingPage` is true', () => {
-    beforeEach(() => {
-      props.isLandingPage = true;
+  describe('when `isFetching`', () => {
+    describe('is false', () => {
+      it('always renders `Title`', () => {
+        expect(article().find(Title).length).toBe(1);
+      });
+
+      it('always renders `Text`', () => {
+        expect(article().find(Text).length).toBe(1);
+      });
+
+      it('always renders `Image`', () => {
+        expect(article().find(Image).length).toBe(1);
+      });
     });
 
-    it('always renders `MoreButton`', () => {
-      expect(article().find(MoreButton).length).toBe(1);
-    });
-  });
+    describe('is true', () => {
+      beforeEach(() => {
+        props.isFetching = true;
+      });
 
-  describe('when `isFetching` is false', () => {
-    it('always renders `Title`', () => {
-      expect(article().find(Title).length).toBe(1);
-    });
+      it('a `Spinner` is shown', () => {
+        expect(article().find(Spinner).length).toBe(1);
+      });
 
-    it('always renders `Text`', () => {
-      expect(article().find(Text).length).toBe(1);
+      it('nothing else is rendered', () => {
+        expect(article().find(Title).length).toBe(0);
+        expect(article().find(Text).length).toBe(0);
+        expect(article().find(Image).length).toBe(0);
+      });
     });
-
-    it('always renders `Image`', () => {
-      expect(article().find(Image).length).toBe(1);
-    });
-  });
-
-  describe('when `isFetching` is true', () => {
-    beforeEach(() => {
-      props.isFetching = true;
-    });
-
-    it('a `Spinner` is shown', () => {
-      expect(article().find(Spinner).length).toBe(1);
-    });
-
-    it('nothing else is rendered', () => {
-      expect(article().find(Title).length).toBe(0);
-      expect(article().find(Text).length).toBe(0);
-      expect(article().find(Image).length).toBe(0);
-    });
-
   });
 });

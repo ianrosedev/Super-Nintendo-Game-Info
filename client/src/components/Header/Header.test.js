@@ -14,11 +14,11 @@ describe('Header', () => {
   });
 
   describe('it always renders', () => {
-    it('a `h1` tag', () => {
+    it('a `h1`', () => {
       expect(wrapper.find('h1').length).toBe(1);
     });
 
-    it('an `img` tag', () => {
+    it('an `img`', () => {
       expect(wrapper.find('img').length).toBe(1);
     });
   });

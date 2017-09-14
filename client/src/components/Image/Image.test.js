@@ -16,4 +16,10 @@ describe('Image', () => {
   it('renders without crashing', () => {
     wrapper;
   });
+
+  describe('it always renders', () => {
+    it('an `img`', () => {
+      expect(wrapper.find('img').length).toBe(1);
+    });
+  });
 });

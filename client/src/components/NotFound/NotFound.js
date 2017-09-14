@@ -1,7 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import BasicContainer from '../BasicContainer/BasicContainer';
 import MoreButton from '../MoreButton/MoreButton';
-import { Link } from 'react-router-dom';
 import './NotFound.css';
 
 const NotFound = () => (

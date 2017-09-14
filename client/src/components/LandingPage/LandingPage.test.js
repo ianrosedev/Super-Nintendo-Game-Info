@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { shallow } from 'enzyme';
 import LandingPage from './LandingPage';
@@ -20,12 +19,12 @@ describe('LandingPage', () => {
   describe('it always renders', () => {
     it('a `HeaderContainer` with title `Featured Game`', () => {
       expect(wrapper.find(HeaderContainer).first().prop('title'))
-        .toEqual('Featured Game');
+        .toBe('Featured Game');
     });
 
     it('a `HeaderContainer` with title `Full Game Listing`', () => {
       expect(wrapper.find(HeaderContainer).at(1).prop('title'))
-        .toEqual('Full Game Listing');
+        .toBe('Full Game Listing');
     });
 
     it('a `GameDetail`', () => {

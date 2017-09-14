@@ -6,6 +6,7 @@ import './VideosList.css';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
+  selectedGame: PropTypes.string.isRequired,
   videos: PropTypes.array.isRequired,
   fetchVideos: PropTypes.func.isRequired
 };
@@ -16,10 +17,12 @@ class VideosList extends Component {
   }
 
   render() {
-    const { isFetching, videos } = this.props;
+    const { isFetching, selectedGame, videos } = this.props;
+    
     const selectedVideos = videos.map((video, i) => (
       <Video
         key={i}
+        selectedGame={selectedGame}
         video={video}
       />
     ));

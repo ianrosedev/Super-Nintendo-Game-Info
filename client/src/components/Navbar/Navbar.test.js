@@ -1,13 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Footer from './Footer';
-import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 
-describe('Footer', () => {
+describe('Navbar', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Footer />);
+    wrapper = shallow(<Navbar />);
   });
 
   it('renders without crashing', () => {
