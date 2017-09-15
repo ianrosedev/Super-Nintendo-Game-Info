@@ -7,6 +7,7 @@ import Text from '../Text/Text';
 import Image from '../Image/Image';
 import MoreButton from '../MoreButton/MoreButton';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
+import './Article.css';
 
 const propTypes = {
   isLandingPage: PropTypes.bool,
@@ -25,30 +26,30 @@ class Article extends Component {
   }
 
   render() {
-    const { isFetching, title, text, image } = this.props;
+    const { isLandingPage, isFetching, isError, title, text, image } = this.props;
 
     return (
-      (isFetching) ? (
-        <Spinner />
-      ) : (
-        <div>
-          <Title title={title} />
-          <Image
-            image={require(`../../media/images/coverArtwork/${image}.jpg`)}
-            alt={title + ' box artwork'}
-          />
-          <Text text={text} />
-          {(this.props.isLandingPage) ? (
-            <MoreButton arrowDirection='right'>
-              <CurrentGameLink link={featuredGame}>
-                See More
-              </CurrentGameLink>
-            </MoreButton>
-          ) : (
-            null
-          )}
-        </div>
-      )
+      <div className='article'>
+        {(isFetching) ? (
+          <Spinner />
+        ) : (
+          <div>
+            <Title title={title} />
+            <Image
+              image={require(`../../media/images/coverArtwork/${image}.jpg`)}
+              alt={title + ' box artwork'}
+            />
+            <Text text={text} />
+            {isLandingPage && !isError &&
+              <MoreButton arrowDirection='right'>
+                <CurrentGameLink link={featuredGame}>
+                  See More
+                </CurrentGameLink>
+              </MoreButton>
+            }
+          </div>
+        )}
+      </div>
     );
   }
 }
