@@ -1,11 +1,11 @@
 import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import currentGame from './currentGame';
-import searchableGamesList from './searchableGamesList';
-import gameDetail from './gameDetail';
-import selectedVideosList from './selectedVideosList';
+import currentGame from './currentGame/currentGame';
+import searchableGamesList from './searchableGamesList/searchableGamesList';
+import gameDetail from './gameDetail/gameDetail';
+import selectedVideosList from './selectedVideosList/selectedVideosList';
 
-  const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   currentGame,
   searchableGamesList,
   gameDetail,

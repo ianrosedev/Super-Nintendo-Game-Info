@@ -8,7 +8,7 @@ export const setCurrentGame = (game) => ({
 });
 
 // Initial state
-const initialState = {
+export const initialState = {
   currentGame: ''
 };
 

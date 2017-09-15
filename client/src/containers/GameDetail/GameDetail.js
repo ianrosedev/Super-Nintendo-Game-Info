@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchGame } from '../../reducers/gameDetail';
+import { fetchGame } from '../../reducers/gameDetail/gameDetail';
 import Article from '../../components/Article/Article';
 
 const mapStateToProps = ({ gameDetail }) => ({

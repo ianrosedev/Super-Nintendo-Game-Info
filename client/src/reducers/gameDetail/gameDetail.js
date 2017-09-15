@@ -1,5 +1,5 @@
-import { createImageLink } from '../helpers/strings';
-import history from '../history';
+import { createImageLink } from '../../helpers/strings';
+import history from '../../history';
 
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';
