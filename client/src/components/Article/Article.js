@@ -12,6 +12,7 @@ import './Article.css';
 const propTypes = {
   isLandingPage: PropTypes.bool,
   isFetching: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
@@ -28,29 +29,37 @@ class Article extends Component {
   render() {
     const { isLandingPage, isFetching, isError, title, text, image } = this.props;
 
-    return (
-      <div className='article'>
-        {(isFetching) ? (
-          <Spinner />
-        ) : (
-          <div>
-            <Title title={title} />
-            <Image
-              image={require(`../../media/images/coverArtwork/${image}.jpg`)}
-              alt={title + ' box artwork'}
-            />
-            <Text text={text} />
-            {isLandingPage && !isError &&
-              <MoreButton arrowDirection='right'>
-                <CurrentGameLink link={featuredGame}>
-                  See More
-                </CurrentGameLink>
-              </MoreButton>
-            }
-          </div>
-        )}
-      </div>
-    );
+    if (isError) {
+      return (
+        <div className='article'>
+          <h3 className='error'>Sorry, there was an error!</h3>
+        </div>
+      );
+    } else {
+      return (
+        <div className='article'>
+          {(isFetching) ? (
+            <Spinner />
+          ) : (
+            <div>
+              <Title title={title} />
+              <Image
+                image={require(`../../media/images/coverArtwork/${image}.jpg`)}
+                alt={title + ' box artwork'}
+              />
+              <Text text={text} />
+              {isLandingPage &&
+                <MoreButton arrowDirection='right'>
+                  <CurrentGameLink link={featuredGame}>
+                    See More
+                  </CurrentGameLink>
+                </MoreButton>
+              }
+            </div>
+          )}
+        </div>
+      );
+    }
   }
 }
 

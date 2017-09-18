@@ -8,7 +8,13 @@ app.get('/videos/:game', (request, response) => {
   youTubeSearch(request.params.game + ' snes',
     { key: youTubeKey, maxResults: 3 },
     (youTubeError, youTubeResponse) => {
-      if (youTubeError) return console.log(youTubeError);
+      if (youTubeError) {
+        return response
+          .status(404)
+          .send({
+            message: youTubeError
+          });
+      }
 
       const videos = youTubeResponse.map(
         video => video.link.substr(video.link.indexOf('=') + 1)

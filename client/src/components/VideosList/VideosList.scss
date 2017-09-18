@@ -1,9 +1,15 @@
+@import 'media/styles/_colors';
 @import 'media/styles/_sizes';
 
 .videos-list {
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 15vh;
+
+  .error {
+    color: $red;
+  }
 }
 
 @include tablet-down {

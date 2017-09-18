@@ -2,6 +2,7 @@
 export const SET_SELECTED_GAME = 'SET_SELECTED_GAME';
 export const REQUEST_VIDEOS = 'REQUEST_VIDEOS';
 export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
+export const HANDLE_VIDEO_ERROR = 'HANDLE_VIDEO_ERROR';
 
 // Action Creators
 export const setSelectedGame = (game) => ({
@@ -11,13 +12,20 @@ export const setSelectedGame = (game) => ({
 
 export const requestVideos = () => ({
   type: REQUEST_VIDEOS,
-  isFetching: true
+  isFetching: true,
+  isError: false
 });
 
 export const receiveVideos = (videos) => ({
   type: RECEIVE_VIDEOS,
   isFetching: false,
   videos: videos
+});
+
+export const handleVideoError = () => ({
+  type: HANDLE_VIDEO_ERROR,
+  isFetching: false,
+  isError: true
 });
 
 // Thunk Action Creators
@@ -31,14 +39,20 @@ export const fetchVideos = () => {
     dispatch(requestVideos());
 
     return fetch(`/videos/${currentGame}`)
+      .then(response => {
+        if (!response.ok) return dispatch(handleVideoError());
+        return response;
+      })
       .then(response => response.json())
-      .then(response => dispatch(receiveVideos(response)));
+      .then(response => dispatch(receiveVideos(response)))
+      .catch(error => dispatch(handleVideoError()));
   };
 };
 
 // Initial State
-const initialState = {
+export const initialState = {
   isFetching: false,
+  isError: false,
   selectedGame: '',
   videos: []
 };
@@ -55,12 +69,19 @@ export default (state = initialState, action) => {
       return {
         ...state,
         isFetching: action.isFetching,
+        isError: action.isError
       };
     case RECEIVE_VIDEOS:
       return {
         ...state,
         isFetching: action.isFetching,
         videos: action.videos
+      };
+    case HANDLE_VIDEO_ERROR:
+      return {
+        ...state,
+        isFetching: action.isFetching,
+        isError: action.isError
       };
     default:
       return state;

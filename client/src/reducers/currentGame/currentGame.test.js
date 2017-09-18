@@ -19,7 +19,7 @@ describe('currentGame', () => {
     });
 
     it('should handle SET_CURRENT_GAME', () => {
-      expect(reducer({}, {
+      expect(reducer(undefined, {
         type: duck.SET_CURRENT_GAME,
         game: 'Super Mario World'
       })).toEqual({

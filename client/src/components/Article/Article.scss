@@ -1,6 +1,12 @@
+@import 'media/styles/_colors';
+
 .article {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 20vh;
+
+  .error {
+    color: $red;
+  }
 }

@@ -6,6 +6,7 @@ import './VideosList.css';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
+  isError: PropTypes.bool.isRequired,
   selectedGame: PropTypes.string.isRequired,
   videos: PropTypes.array.isRequired,
   fetchVideos: PropTypes.func.isRequired
@@ -17,25 +18,33 @@ class VideosList extends Component {
   }
 
   render() {
-    const { isFetching, selectedGame, videos } = this.props;
+    const { isFetching, isError, selectedGame, videos } = this.props;
 
-    const selectedVideos = videos.map((video, i) => (
-      <Video
-        key={i}
-        selectedGame={selectedGame}
-        video={video}
-      />
-    ));
-
-    return (
-      (isFetching) ? (
-        <Spinner />
-      ) : (
+    if (isError) {
+      return (
         <div className='videos-list'>
-          {selectedVideos}
+          <h3 className='error'>Sorry, there was an error!</h3>
         </div>
-      )
-    );
+      );
+    } else {
+      const selectedVideos = videos.map((video, i) => (
+        <Video
+          key={i}
+          selectedGame={selectedGame}
+          video={video}
+        />
+      ));
+
+      return (
+        (isFetching) ? (
+          <Spinner />
+        ) : (
+          <div className='videos-list'>
+            {selectedVideos}
+          </div>
+        )
+      );
+    }
   }
 }
 

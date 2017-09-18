@@ -14,7 +14,7 @@ export const clearQuery = () => ({
 });
 
 // Initial State
-const initialState = {
+export const initialState = {
   query: ''
 };
 

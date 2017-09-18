@@ -25,6 +25,7 @@ describe('Article', () => {
     props = {
       isLandingPage: undefined,
       isFetching: false,
+      isError: false,
       title: 'Super Mario World',
       text: 'Super Mario World...',
       image: 'super_mario_world',

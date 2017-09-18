@@ -19,6 +19,7 @@ describe('VideosList', () => {
   beforeEach(() => {
     props = {
       isFetching: false,
+      isError: false,
       selectedGame: 'Super Mario World',
       videos: ['video1', 'video2', 'video3'],
       fetchVideos: jest.fn(),
