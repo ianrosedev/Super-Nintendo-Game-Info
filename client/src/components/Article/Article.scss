@@ -1,4 +1,5 @@
 @import 'media/styles/_colors';
+@import 'media/styles/_sizes';
 
 .article {
   display: flex;
@@ -7,6 +8,15 @@
   min-height: 20vh;
 
   .error {
+    font-size: 2.5rem;
     color: $red;
+  }
+}
+
+@include tablet-down {
+  .article {
+    .error {
+      font-size: 1.5rem;
+    }
   }
 }

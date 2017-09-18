@@ -8,6 +8,7 @@
   min-height: 15vh;
 
   .error {
+    font-size: 2.5rem;
     color: $red;
   }
 }
@@ -15,5 +16,9 @@
 @include tablet-down {
   .videos-list {
     flex-direction: column;
+
+    .error {
+      font-size: 1.5rem;
+    }
   }
 }
