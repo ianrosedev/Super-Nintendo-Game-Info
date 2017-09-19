@@ -17,7 +17,7 @@ export const receiveGame = (response) => ({
   type: RECEIVE_GAME,
   isFetching: false,
   title: response.title,
-  text: response.text,
+  text: response.text || '<p>Sorry, there is no information about this game.</p>',
   image: response.image
 });
 
