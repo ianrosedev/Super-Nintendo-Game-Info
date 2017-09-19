@@ -1,8 +1,8 @@
 {
   "name": "super-nintendo-game-info",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "Ian Rose",
-  "private": true,
+  "license": "ISC",
   "proxy": "http://localhost:3001",
   "dependencies": {
     "font-awesome": "^4.7.0",

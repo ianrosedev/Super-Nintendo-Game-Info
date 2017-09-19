@@ -1,6 +1,6 @@
 {
   "name": "super-nintendo-game-info",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Get information on every official North American SNES game release.",
   "author": "Ian Rose",
   "license": "ISC",
