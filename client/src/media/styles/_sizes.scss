@@ -1,3 +1,7 @@
 @mixin tablet-down {
   @media (max-width: 900px) { @content; }
 }
+
+@mixin phone-only {
+  @media (max-width: 599px) { @content; }
+}

@@ -7,6 +7,7 @@
 
 .footer {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 50px;
   padding: 0 5vw;
@@ -15,13 +16,17 @@
   span {
     width: 100%;
     margin-top: 3px;
-    font-family: 'SNES-italic';
-    font-size: 1.8rem;
-    color: $red;
+
+    p {
+      display: inline;
+      font-family: 'SNES-italic';
+      font-size: 1.8rem;
+      color: $red;
+    }
 
     a {
       float: right;
-      margin: 2px 3vw 0 0;
+      margin-right: 3vw;
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 1.25rem;
       color: $white;
@@ -34,6 +39,24 @@
   .footer {
     span > a:last-child {
       margin-right: 4vw;
+    }
+  }
+}
+
+@include phone-only {
+  .footer {
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        display: none;
+      }
+
+      a {
+        margin-right: 20vw;
+      }
     }
   }
 }
