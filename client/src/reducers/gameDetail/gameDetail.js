@@ -38,20 +38,20 @@ export const fetchGame = (game) => {
 
     return (
       fetch('https://en.wikipedia.org/w/api.php?' +
-        '&action=query' +
-        '&titles=' + encodeURIComponent(currentGame) +
-        '&prop=extracts' +
-        '&exintro=' +
-        '&redirects=1' +
-        '&format=json' +
-        '&origin=*')
-      .then(response => response.json())
-      .then(response => dispatch(receiveGame({
-        title: response.query.pages[Object.keys(response.query.pages)[0]].title,
-        text: response.query.pages[Object.keys(response.query.pages)[0]].extract,
-        image: createImageLink(currentGame)
-      })))
-      .catch(error => dispatch(handleWikiError(error)))
+            '&action=query' +
+            '&titles=' + encodeURIComponent(currentGame) +
+            '&prop=extracts' +
+            '&exintro=' +
+            '&redirects=1' +
+            '&format=json' +
+             '&origin=*')
+        .then(response => response.json())
+        .then(response => dispatch(receiveGame({
+          title: response.query.pages[Object.keys(response.query.pages)[0]].title,
+          text: response.query.pages[Object.keys(response.query.pages)[0]].extract,
+          image: createImageLink(currentGame)
+        })))
+        .catch(error => dispatch(handleWikiError(error)))
     );
   };
 };

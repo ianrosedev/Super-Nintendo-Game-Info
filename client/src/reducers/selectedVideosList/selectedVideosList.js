@@ -29,23 +29,25 @@ export const handleVideoError = () => ({
 });
 
 // Thunk Action Creators
-export const fetchVideos = () => {
+export const fetchVideos = (game) => {
   return (dispatch, getState) => {
-    const currentGame = getState().currentGame.currentGame;
+    const currentGame = game || getState().currentGame.currentGame;
 
     if (!currentGame) return;
 
     dispatch(setSelectedGame(currentGame));
     dispatch(requestVideos());
 
-    return fetch(`/videos/${currentGame}`)
-      .then(response => {
-        if (!response.ok) return dispatch(handleVideoError());
-        return response;
-      })
-      .then(response => response.json())
-      .then(response => dispatch(receiveVideos(response)))
-      .catch(error => dispatch(handleVideoError()));
+    return (
+      fetch(`/videos/${currentGame}`)
+        .then(response => {
+          if (!response.ok) throw new Error();
+          return response;
+        })
+        .then(response => response.json())
+        .then(response => dispatch(receiveVideos(response)))
+        .catch(error => dispatch(handleVideoError()))
+    );
   };
 };
 
