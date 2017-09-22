@@ -3,9 +3,9 @@ export const UPDATE_QUERY = 'UPDATE_QUERY';
 export const CLEAR_QUERY = 'CLEAR_QUERY';
 
 // Action Creators
-export const updateQuery = (event) => ({
+export const updateQuery = (value) => ({
   type: UPDATE_QUERY,
-  query: event.target.value
+  query: value
 });
 
 export const clearQuery = () => ({

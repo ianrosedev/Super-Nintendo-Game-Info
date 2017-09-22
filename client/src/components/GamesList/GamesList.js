@@ -12,6 +12,14 @@ const propTypes = {
 };
 
 const GamesList = ({ query, updateQuery, clearQuery }) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
+
+  const handleChange = (event) => {
+    updateQuery(event.target.value)
+  };
+
   const filteredGamesList = fullGamesList.filter(
     game => game.toLowerCase().includes(query.toLowerCase())
   );
@@ -26,13 +34,16 @@ const GamesList = ({ query, updateQuery, clearQuery }) => {
 
   return (
     <div className='games-list'>
-      <div className='search-bar'>
+      <form
+        className='search-bar'
+        onSubmit={handleSubmit}
+      >
         <i className='fa fa-search' aria-hidden='true'></i>
         <input
           type='search'
           placeholder='Search Games...'
           value={query}
-          onChange={event => updateQuery(event)}
+          onChange={handleChange}
         />
         <button
           type='button'
@@ -40,7 +51,7 @@ const GamesList = ({ query, updateQuery, clearQuery }) => {
         >
           Clear
         </button>
-      </div>
+      </form>
       <ul>
         {games}
       </ul>
