@@ -3,17 +3,13 @@ import reducer, * as duck from './searchableGamesList';
 describe('searchableGamesList', () => {
   describe('actions', () => {
     it('updateQuery should create an action and update the query', () => {
-      const mockEvent = {
-        target: {
-          value: 'Super Mario World'
-        }
-      };
+      const value = 'Super Mario World';
       const expectedAction = {
         type: duck.UPDATE_QUERY,
         query: 'Super Mario World'
       };
 
-      expect(duck.updateQuery(mockEvent)).toEqual(expectedAction);
+      expect(duck.updateQuery(value)).toEqual(expectedAction);
     });
 
     it('clearQuery should create an action and reset the query', () => {
