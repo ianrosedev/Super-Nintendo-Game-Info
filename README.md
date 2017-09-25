@@ -2,7 +2,9 @@
 Searchable information on every official North American SNES game release. View a synopsis from Wikipedia and videos from YouTube all in one place!
 
 ## Installation
-To download:
+**You’ll need to have Node >= 6 on your machine.**
+
+From the location where you want to install the app:
 ```
 git clone https://github.com/ianrosedev/Super-Nintendo-Game-Info.git
 ```
