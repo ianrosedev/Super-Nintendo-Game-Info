@@ -1,11 +1,10 @@
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setCurrentGame } from '../../reducers/currentGame/currentGame';
 import GameLink from '../../components/GameLink/GameLink';
 
-const mapDispatchToProps = (dispatch) => ({
-  setCurrentGame: bindActionCreators(setCurrentGame, dispatch)
-});
+const mapDispatchToProps = {
+  setCurrentGame
+};
 
 const CurrentGameLink = connect(
   null,
