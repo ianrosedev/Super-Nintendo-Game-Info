@@ -8,13 +8,13 @@ const Footer = () => (
   <div className='footer'>
     {(history.location.pathname === '/') ? (
       <span>
-        <p>Super Nintendo Game Info</p>
+        <a href='#' className='footer-logo'>Super Nintendo Game Info</a>
         <a href='#full-games-list'>Full List</a>
         <a href='#'>Top</a>
       </span>
     ) : (
       <span>
-        <p>Super Nintendo Game Info</p>
+        <Link to='/' className='footer-logo'>Super Nintendo Game Info</Link>
         <Link to='/'>Home</Link>
         <a href='#'>Top</a>
       </span>
