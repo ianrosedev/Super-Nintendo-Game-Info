@@ -3,13 +3,21 @@
 .text {
   line-height: 1.75rem;
 
-  p > i {
-    margin: 0;
+  p {
+    min-width: 89vw;
+
+    i {
+      margin: 0;
+    }
   }
 }
 
 @include tablet-down {
   .text {
     margin: 0 3vw;
+
+    p {
+      min-width: 0;
+    }
   }
 }
