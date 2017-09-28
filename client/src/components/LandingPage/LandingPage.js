@@ -2,6 +2,7 @@ import React from 'react';
 import GameDetail from '../../containers/GameDetail/GameDetail';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import SearchableGamesList from '../../containers/SearchableGamesList/SearchableGamesList';
+import scrollToTopOnMount from '../../hocs/scrollToTopOnMount';
 import './LandingPage.css';
 
 const LandingPage = () => (
@@ -22,4 +23,4 @@ const LandingPage = () => (
   </div>
 );
 
-export default LandingPage;
+export default scrollToTopOnMount(LandingPage);

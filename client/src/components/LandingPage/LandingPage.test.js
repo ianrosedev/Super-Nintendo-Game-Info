@@ -9,7 +9,7 @@ describe('LandingPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<LandingPage />);
+    wrapper = shallow(<LandingPage />).first().shallow();
   });
 
   it('renders without crashing', () => {

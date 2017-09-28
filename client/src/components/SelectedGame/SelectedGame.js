@@ -3,6 +3,7 @@ import GameDetail from '../../containers/GameDetail/GameDetail';
 import SelectedVideosList from '../../containers/SelectedVideosList/SelectedVideosList';
 import BasicContainer from '../BasicContainer/BasicContainer';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
+import scrollToTopOnMount from '../../hocs/scrollToTopOnMount';
 import './SelectedGame.css';
 
 const SelectedGame = () => (
@@ -19,4 +20,4 @@ const SelectedGame = () => (
   </div>
 );
 
-export default SelectedGame;
+export default scrollToTopOnMount(SelectedGame);
