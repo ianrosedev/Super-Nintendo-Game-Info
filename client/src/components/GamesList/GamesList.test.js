@@ -1,12 +1,13 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import SearchBar from '../SearchBar/SearchBar'
 import GamesList from './GamesList';
 import Game from '../Game/Game';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 
 describe('GamesList', () => {
   let wrapper;
-  const props = {
+  let props = {
     query: '',
     updateQuery: jest.fn(),
     clearQuery: jest.fn()
@@ -20,17 +21,27 @@ describe('GamesList', () => {
     wrapper;
   });
 
-  describe('it always renders', () => {
-    it('an icon as `i` with class `fa-search`', () => {
-      expect(wrapper.find('i').hasClass('fa-search')).toBe(true);
+  it('renders a `SearchBar`', () => {
+    expect(wrapper.find(SearchBar).length).toBe(1);
+  });
+
+  describe('the list', () => {
+    it('if the query has a match renders an `ul`', () => {
+      wrapper.setProps({
+        ...props,
+        query: 'Super Mario World'
+      });
+
+      expect(wrapper.find('ul').length).toBe(1);
     });
 
-    it('an input with type of `search`', () => {
-      expect(wrapper.find('input').prop('type')).toBe('search');
-    });
+    it('if the query has no match it renders a `p`', () => {
+      wrapper.setProps({
+        ...props,
+        query: 'somethingThatWontBeBound'
+      });
 
-    it('a button that says `Clear`', () => {
-      expect(wrapper.find('button').text()).toBe('Clear');
+      expect(wrapper.find('p').length).toBe(1);
     });
   });
 });

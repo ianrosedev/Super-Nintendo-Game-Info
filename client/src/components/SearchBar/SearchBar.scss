@@ -1,0 +1,49 @@
+@import 'media/styles/_colors';
+@import 'media/styles/_sizes';
+
+.search-bar {
+  display: flex;
+  width: 45vw;
+  max-width: 620px;
+  height: 40px;
+  background-color: $light-gray;
+  margin-bottom: 3vh;
+  border: 1px solid $light-gray;
+
+  i {
+    float: left;
+    width: auto;
+    height: inherit;
+    margin: 0 !important;
+    padding: 6px 5px 0 5px;
+    font-size: 1.5rem;
+  }
+
+  input {
+    float: left;
+    width: 100%;
+    height: inherit;
+    padding: 0 10px;
+  }
+
+  button {
+    float: right;
+    width: 110px;
+    height: inherit;
+    background-color: $red;
+    border: 0;
+    padding: 0;
+    color: $white;
+    cursor: pointer;
+    &:hover {
+      background-color: $dark-red;
+    }
+  }
+}
+
+@include tablet-down {
+  .search-bar {
+    width: 100%;
+    max-width: none;
+  }
+}

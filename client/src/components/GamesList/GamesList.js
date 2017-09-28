@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import fullGamesList from '../../static/fullGamesList';
+import SearchBar from '../SearchBar/SearchBar';
 import Game from '../Game/Game';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 import './GamesList.css';
@@ -11,14 +12,8 @@ const propTypes = {
   clearQuery: PropTypes.func.isRequired
 };
 
-const GamesList = ({ query, updateQuery, clearQuery }) => {
-  const handleSubmit = (event) => (
-    event.preventDefault()
-  );
-
-  const handleChange = (event) => (
-    updateQuery(event.target.value)
-  );
+const GamesList = (props) => {
+  const { query } = props;
 
   const filteredGamesList = fullGamesList.filter(
     game => game.toLowerCase().includes(query.toLowerCase())
@@ -34,25 +29,7 @@ const GamesList = ({ query, updateQuery, clearQuery }) => {
 
   return (
     <div className='games-list'>
-      <form
-        className='search-bar'
-        onSubmit={handleSubmit}
-      >
-        <i className='fa fa-search' aria-hidden='true'></i>
-        <input
-          type='search'
-          placeholder='Search Games...'
-          value={query}
-          onChange={handleChange}
-        />
-        <button
-          type='button'
-          onKeyDown={clearQuery}
-          onMouseDown={clearQuery}
-        >
-          Clear
-        </button>
-      </form>
+      <SearchBar {...props} />
       {(games.length > 0) ? (
         <ul>
           {games}
