@@ -12,13 +12,13 @@ const propTypes = {
 };
 
 const GamesList = ({ query, updateQuery, clearQuery }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  const handleSubmit = (event) => (
+    event.preventDefault()
+  );
 
-  const handleChange = (event) => {
+  const handleChange = (event) => (
     updateQuery(event.target.value)
-  };
+  );
 
   const filteredGamesList = fullGamesList.filter(
     game => game.toLowerCase().includes(query.toLowerCase())
@@ -52,9 +52,13 @@ const GamesList = ({ query, updateQuery, clearQuery }) => {
           Clear
         </button>
       </form>
-      <ul>
-        {games}
-      </ul>
+      {(games.length > 0) ? (
+        <ul>
+          {games}
+        </ul>
+      ) : (
+        <p>No Results Found</p>
+      )}
     </div>
   );
 };
