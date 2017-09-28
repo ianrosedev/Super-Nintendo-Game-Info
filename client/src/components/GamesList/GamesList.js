@@ -47,6 +47,7 @@ const GamesList = ({ query, updateQuery, clearQuery }) => {
         />
         <button
           type='button'
+          onKeyDown={clearQuery}
           onMouseDown={clearQuery}
         >
           Clear
