@@ -24,6 +24,9 @@
     width: 100%;
     height: inherit;
     padding: 0 10px;
+    // Fix rounded corners on Safari mobile
+    border-radius: 0;
+    -webkit-appearance: none;
   }
 
   button {
