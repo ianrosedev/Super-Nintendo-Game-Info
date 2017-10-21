@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import Body from '../Body/Body';
 import Footer from '../Footer/Footer';
 import 'normalize.css';
-import 'font-awesome/css/font-awesome.min.css'
+import 'font-awesome/css/font-awesome.min.css';
 import './App.css';
 
 const App = () => (

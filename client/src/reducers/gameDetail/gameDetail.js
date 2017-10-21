@@ -4,7 +4,7 @@ import history from '../../history';
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';
 export const RECEIVE_GAME = 'RECEIVE_GAME';
-export const HANDLE_WIKI_ERROR = 'HANDLE_ERROR';
+export const HANDLE_WIKI_ERROR = 'HANDLE_WIKI_ERROR';
 
 // Action Creators
 export const requestGame = () => ({
