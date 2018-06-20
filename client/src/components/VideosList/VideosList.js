@@ -4,17 +4,26 @@ import Spinner from '../Spinner/Spinner';
 import Video from '../Video/Video';
 import './VideosList.css';
 
+import { withRouter } from 'react-router-dom';
+import fullGamesList from '../../static/fullGamesList';
+
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
-  selectedGame: PropTypes.string.isRequired,
+  // selectedGame: PropTypes.object.isRequired,
   videos: PropTypes.array.isRequired,
   fetchVideos: PropTypes.func.isRequired
 };
 
 class VideosList extends Component {
   componentDidMount() {
-    this.props.fetchVideos();
+    const { history, fetchVideos } = this.props;
+
+    const currentGame = fullGamesList.find((game) => {
+      return game.url === history.location.pathname.slice(1);
+    });
+
+    fetchVideos(currentGame);
   }
 
   render() {
@@ -50,4 +59,4 @@ class VideosList extends Component {
 
 VideosList.propTypes = propTypes;
 
-export default VideosList;
+export default withRouter(VideosList);

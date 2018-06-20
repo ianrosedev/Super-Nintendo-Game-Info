@@ -29,9 +29,10 @@ export const handleWikiError = () => ({
 
 // Thunk Action Creators
 export const fetchGame = (game) => {
-  return (dispatch, getState) => {
-    const currentGame = game || getState().currentGame.currentGame;
+  return (dispatch) => {
+    const currentGame = game.wiki;
 
+    // FIX
     if (!currentGame) return history.push('/');
 
     dispatch(requestGame());

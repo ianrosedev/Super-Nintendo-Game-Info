@@ -30,8 +30,9 @@ export const handleVideoError = () => ({
 
 // Thunk Action Creators
 export const fetchVideos = (game) => {
-  return (dispatch, getState) => {
-    const currentGame = game || getState().currentGame.currentGame;
+  return (dispatch) => {
+    const currentGame = game ? game.wiki : '';
+    console.log('Current game', currentGame);
 
     if (!currentGame) return;
 

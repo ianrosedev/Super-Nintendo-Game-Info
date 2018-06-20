@@ -8,9 +8,7 @@ export const setCurrentGame = (game) => ({
 });
 
 // Initial state
-export const initialState = {
-  currentGame: ''
-};
+export const initialState = {};
 
 // Reducer
 export default (state = initialState, action) => {

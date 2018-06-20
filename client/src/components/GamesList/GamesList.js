@@ -15,14 +15,18 @@ const propTypes = {
 const GamesList = (props) => {
   const { query } = props;
 
-  const filteredGamesList = fullGamesList.filter(
-    game => game.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredGamesList = fullGamesList.filter((game) => {
+    if (game.wiki.toLowerCase().includes(query.toLowerCase())) {
+      return game;
+    }
+
+    return '';
+  });
 
   const games = filteredGamesList.map((game, i) => (
     <Game key={i}>
-      <CurrentGameLink link={game}>
-        {game}
+      <CurrentGameLink game={game}>
+        {game.wiki}
       </CurrentGameLink>
     </Game>
   ));

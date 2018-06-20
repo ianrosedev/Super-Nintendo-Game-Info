@@ -9,8 +9,10 @@ import MoreButton from '../MoreButton/MoreButton';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 import './Article.css';
 
+import { withRouter } from 'react-router-dom';
+import fullGamesList from '../../static/fullGamesList';
+
 const propTypes = {
-  isLandingPage: PropTypes.bool,
   isFetching: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
@@ -21,9 +23,13 @@ const propTypes = {
 
 class Article extends Component {
   componentDidMount() {
-    const { isLandingPage, fetchGame } = this.props;
+    const { history, fetchGame } = this.props;
 
-    isLandingPage ? fetchGame(featuredGame) : fetchGame()
+    const currentGame = fullGamesList.find((game) => {
+      return game.url === history.location.pathname.slice(1);
+    });
+
+    fetchGame(currentGame || featuredGame);
   }
 
   render() {
@@ -50,7 +56,7 @@ class Article extends Component {
               <Text text={text} />
               {isLandingPage &&
                 <MoreButton arrowDirection='right'>
-                  <CurrentGameLink link={featuredGame}>
+                  <CurrentGameLink game={featuredGame}>
                     See More
                   </CurrentGameLink>
                 </MoreButton>
@@ -65,4 +71,4 @@ class Article extends Component {
 
 Article.propTypes = propTypes;
 
-export default Article;
+export default withRouter(Article);

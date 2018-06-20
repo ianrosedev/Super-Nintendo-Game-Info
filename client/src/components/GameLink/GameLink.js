@@ -1,18 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { stringToURL } from '../../helpers/strings';
 
 const propTypes = {
-  link: PropTypes.string.isRequired,
+  game: PropTypes.object.isRequired,
   setCurrentGame: PropTypes.func.isRequired,
   children: PropTypes.node.isRequired
 };
 
-const GameLink = ({ link, setCurrentGame, children }) => (
+const GameLink = ({ game, setCurrentGame, children }) => (
   <Link
-    to={'/' + stringToURL(link)}
-    onClick={() => setCurrentGame(link)}
+    to={'/' + game.url}
+    onClick={() => setCurrentGame(game.wiki)}
   >
     {children}
   </Link>
