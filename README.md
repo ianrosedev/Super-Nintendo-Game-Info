@@ -1,7 +1,7 @@
 # Super Nintendo Game Info
 Searchable information on every official North American SNES game release. View a synopsis from Wikipedia and videos from YouTube all in one place!
 
-[Check it out in action.](https://supernintendogameinfo.herokuapp.com/)
+[Check it out in action.](https://supernintendogameinfo.ianrosedev.com/)
 
 ## Installation
 **You’ll need to have Node >= 6 on your machine.**
