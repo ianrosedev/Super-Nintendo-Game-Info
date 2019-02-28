@@ -8,12 +8,10 @@ describe('VideosList', () => {
   let mountedVideosList;
   const videosList = () => {
     if (!mountedVideosList) {
-      mountedVideosList = shallow(
-        <VideosList {...props} />
-      );
+      mountedVideosList = shallow(<VideosList {...props} />);
     }
     return mountedVideosList;
-  }
+  };
   let props;
 
   beforeEach(() => {

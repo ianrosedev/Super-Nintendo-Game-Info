@@ -6,7 +6,7 @@ describe('searchableGamesList', () => {
       const value = 'Super Mario World';
       const expectedAction = {
         type: duck.UPDATE_QUERY,
-        query: 'Super Mario World'
+        query: 'Super Mario World',
       };
 
       expect(duck.updateQuery(value)).toEqual(expectedAction);
@@ -15,7 +15,7 @@ describe('searchableGamesList', () => {
     it('clearQuery should create an action and reset the query', () => {
       const expectedAction = {
         type: duck.CLEAR_QUERY,
-        query: ''
+        query: '',
       };
 
       expect(duck.clearQuery()).toEqual(expectedAction);
@@ -28,20 +28,24 @@ describe('searchableGamesList', () => {
     });
 
     it('should handle UPDATE_QUERY', () => {
-      expect(reducer(undefined, {
-        type: duck.UPDATE_QUERY,
-        query: 'Super Mario World'
-      })).toEqual({
-        query: 'Super Mario World'
+      expect(
+        reducer(undefined, {
+          type: duck.UPDATE_QUERY,
+          query: 'Super Mario World',
+        })
+      ).toEqual({
+        query: 'Super Mario World',
       });
     });
 
     it('should handle CLEAR_QUERY', () => {
-      expect(reducer(undefined, {
-        type: duck.CLEAR_QUERY,
-        query: ''
-      })).toEqual({
-        query: ''
+      expect(
+        reducer(undefined, {
+          type: duck.CLEAR_QUERY,
+          query: '',
+        })
+      ).toEqual({
+        query: '',
       });
     });
   });

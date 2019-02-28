@@ -9,7 +9,9 @@ describe('LandingPage', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<LandingPage />).first().shallow();
+    wrapper = shallow(<LandingPage />)
+      .first()
+      .shallow();
   });
 
   it('renders without crashing', () => {
@@ -18,13 +20,21 @@ describe('LandingPage', () => {
 
   describe('it always renders', () => {
     it('a `HeaderContainer` with title `Featured Game`', () => {
-      expect(wrapper.find(HeaderContainer).first().prop('title'))
-        .toBe('Featured Game');
+      expect(
+        wrapper
+          .find(HeaderContainer)
+          .first()
+          .prop('title')
+      ).toBe('Featured Game');
     });
 
     it('a `HeaderContainer` with title `Full Game Listing`', () => {
-      expect(wrapper.find(HeaderContainer).at(1).prop('title'))
-        .toBe('Full Game Listing');
+      expect(
+        wrapper
+          .find(HeaderContainer)
+          .at(1)
+          .prop('title')
+      ).toBe('Full Game Listing');
     });
 
     it('a `GameDetail`', () => {

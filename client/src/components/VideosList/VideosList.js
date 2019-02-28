@@ -12,14 +12,14 @@ const propTypes = {
   isError: PropTypes.bool.isRequired,
   // selectedGame: PropTypes.object.isRequired,
   videos: PropTypes.array.isRequired,
-  fetchVideos: PropTypes.func.isRequired
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 class VideosList extends Component {
   componentDidMount() {
     const { history, fetchVideos } = this.props;
 
-    const currentGame = fullGamesList.find((game) => {
+    const currentGame = fullGamesList.find(game => {
       return game.url === history.location.pathname.slice(1);
     });
 
@@ -37,21 +37,13 @@ class VideosList extends Component {
       );
     } else {
       const selectedVideos = videos.map((video, i) => (
-        <Video
-          key={i}
-          selectedGame={selectedGame}
-          video={video}
-        />
+        <Video key={i} selectedGame={selectedGame} video={video} />
       ));
 
-      return (
-        (isFetching) ? (
-          <Spinner />
-        ) : (
-          <div className='videos-list'>
-            {selectedVideos}
-          </div>
-        )
+      return isFetching ? (
+        <Spinner />
+      ) : (
+        <div className='videos-list'>{selectedVideos}</div>
       );
     }
   }

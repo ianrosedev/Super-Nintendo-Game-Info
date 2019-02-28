@@ -9,13 +9,13 @@ import './GamesList.css';
 const propTypes = {
   query: PropTypes.string.isRequired,
   updateQuery: PropTypes.func.isRequired,
-  clearQuery: PropTypes.func.isRequired
+  clearQuery: PropTypes.func.isRequired,
 };
 
-const GamesList = (props) => {
+const GamesList = props => {
   const { query } = props;
 
-  const filteredGamesList = fullGamesList.filter((game) => {
+  const filteredGamesList = fullGamesList.filter(game => {
     if (game.wiki.toLowerCase().includes(query.toLowerCase())) {
       return game;
     }
@@ -25,22 +25,14 @@ const GamesList = (props) => {
 
   const games = filteredGamesList.map((game, i) => (
     <Game key={i}>
-      <CurrentGameLink game={game}>
-        {game.wiki}
-      </CurrentGameLink>
+      <CurrentGameLink game={game}>{game.wiki}</CurrentGameLink>
     </Game>
   ));
 
   return (
     <div className='games-list'>
       <SearchBar {...props} />
-      {(games.length > 0) ? (
-        <ul>
-          {games}
-        </ul>
-      ) : (
-        <p>No Results Found</p>
-      )}
+      {games.length > 0 ? <ul>{games}</ul> : <p>No Results Found</p>}
     </div>
   );
 };

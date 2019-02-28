@@ -5,7 +5,7 @@ import Game from './Game';
 describe('Game', () => {
   let wrapper;
   let props = {
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {

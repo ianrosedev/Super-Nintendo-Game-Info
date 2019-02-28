@@ -6,7 +6,7 @@ describe('Image', () => {
   let wrapper;
   const props = {
     image: require('../../media/images/coverArtwork/super_mario_world.jpg'),
-    alt: 'Super Mario World Image'
+    alt: 'Super Mario World Image',
   };
 
   beforeEach(() => {

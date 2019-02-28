@@ -11,10 +11,7 @@ const SelectedGame = () => (
     <BasicContainer>
       <GameDetail />
     </BasicContainer>
-    <HeaderContainer
-      title='Videos'
-      icon='fa fa-video-camera'
-    >
+    <HeaderContainer title='Videos' icon='fa fa-video-camera'>
       <SelectedVideosList />
     </HeaderContainer>
   </div>

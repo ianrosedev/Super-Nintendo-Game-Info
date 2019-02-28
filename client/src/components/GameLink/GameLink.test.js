@@ -8,7 +8,7 @@ describe('GameLink', () => {
   let props = {
     link: 'Super Mario World',
     setCurrentGame: jest.fn(),
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {

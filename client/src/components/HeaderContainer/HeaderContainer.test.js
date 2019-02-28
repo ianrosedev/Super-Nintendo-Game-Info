@@ -7,7 +7,7 @@ describe('HeaderContainer', () => {
   let props = {
     title: 'Super Mario World',
     icon: 'star',
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {

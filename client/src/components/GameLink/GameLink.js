@@ -5,14 +5,11 @@ import { Link } from 'react-router-dom';
 const propTypes = {
   game: PropTypes.object.isRequired,
   setCurrentGame: PropTypes.func.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 const GameLink = ({ game, setCurrentGame, children }) => (
-  <Link
-    to={'/' + game.url}
-    onClick={() => setCurrentGame(game.wiki)}
-  >
+  <Link to={'/' + game.url} onClick={() => setCurrentGame(game.wiki)}>
     {children}
   </Link>
 );

@@ -4,7 +4,7 @@ import './Video.css';
 
 const propTypes = {
   selectedGame: PropTypes.string.isRequired,
-  video: PropTypes.string.isRequired
+  video: PropTypes.string.isRequired,
 };
 
 const Video = ({ selectedGame, video }) => (
@@ -15,8 +15,7 @@ const Video = ({ selectedGame, video }) => (
       width='100%'
       height='100%'
       frameBorder='0'
-    >
-    </iframe>
+    />
   </div>
 );
 

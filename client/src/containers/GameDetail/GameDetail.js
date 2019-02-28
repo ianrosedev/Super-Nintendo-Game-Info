@@ -3,11 +3,11 @@ import { fetchGame } from '../../reducers/gameDetail/gameDetail';
 import Article from '../../components/Article/Article';
 
 const mapStateToProps = ({ gameDetail }) => ({
-  ...gameDetail
+  ...gameDetail,
 });
 
 const mapDispatchToProps = {
-  fetchGame
+  fetchGame,
 };
 
 const GameDetail = connect(

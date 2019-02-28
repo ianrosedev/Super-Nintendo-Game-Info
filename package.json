@@ -13,11 +13,16 @@
     "url": "https://github.com/ianrosedev/Super-Nintendo-Game-Info/issues"
   },
   "homepage": "https://github.com/ianrosedev/Super-Nintendo-Game-Info#readme",
+  "scripts": {
+    "format": "prettier --check --write \"**/*.{js, json, html, css, scss, md}\"",
+    "format-ci": "prettier -l --write \"**/*.{js, json, html, css, scss, md}\"",
+    "install-all": "npm install && (cd client && npm install) && (cd server && npm install)",
+    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\""
+  },
   "dependencies": {
     "concurrently": "^4.1.0"
   },
-  "scripts": {
-    "install-all": "npm install && (cd client && npm install) && (cd server && npm install)",
-    "start": "concurrently \"cd client && PORT=3000 npm start\" \"cd server && PORT=3001 npm start\""
+  "devDependencies": {
+    "prettier": "^1.16.4"
   }
 }

@@ -7,7 +7,7 @@ describe('SearchBar', () => {
   const props = {
     query: '',
     updateQuery: jest.fn(),
-    clearQuery: jest.fn()
+    clearQuery: jest.fn(),
   };
 
   beforeEach(() => {

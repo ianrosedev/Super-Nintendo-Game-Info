@@ -13,12 +13,10 @@ describe('Article', () => {
   let mountedArticle;
   const article = () => {
     if (!mountedArticle) {
-      mountedArticle = shallow(
-        <Article {...props} />
-      );
+      mountedArticle = shallow(<Article {...props} />);
     }
     return mountedArticle;
-  }
+  };
   let props;
 
   beforeEach(() => {
@@ -29,7 +27,7 @@ describe('Article', () => {
       title: 'Super Mario World',
       text: 'Super Mario World...',
       image: 'super_mario_world',
-      fetchGame: jest.fn()
+      fetchGame: jest.fn(),
     };
     mountedArticle = undefined;
   });
@@ -50,7 +48,8 @@ describe('Article', () => {
         props.isLandingPage = true;
       });
 
-      it('always renders `MoreButton`', () => {
+      fit('always renders `MoreButton`', () => {
+        console.log(article().find(MoreButton));
         expect(article().find(MoreButton).length).toBe(1);
       });
     });

@@ -10,15 +10,16 @@ export const HANDLE_WIKI_ERROR = 'HANDLE_WIKI_ERROR';
 export const requestGame = () => ({
   type: REQUEST_GAME,
   isFetching: true,
-  isError: false
+  isError: false,
 });
 
-export const receiveGame = (response) => ({
+export const receiveGame = response => ({
   type: RECEIVE_GAME,
   isFetching: false,
   title: response.title,
-  text: response.text || '<p>Sorry, there is no information about this game.</p>',
-  image: response.image
+  text:
+    response.text || '<p>Sorry, there is no information about this game.</p>',
+  image: response.image,
 });
 
 export const handleWikiError = () => ({
@@ -28,8 +29,8 @@ export const handleWikiError = () => ({
 });
 
 // Thunk Action Creators
-export const fetchGame = (game) => {
-  return (dispatch) => {
+export const fetchGame = game => {
+  return dispatch => {
     const currentGame = game.wiki;
 
     // FIX
@@ -37,23 +38,31 @@ export const fetchGame = (game) => {
 
     dispatch(requestGame());
 
-    return (
-      fetch('https://en.wikipedia.org/w/api.php?' +
-            '&action=query' +
-            '&titles=' + encodeURIComponent(currentGame) +
-            '&prop=extracts' +
-            '&exintro=' +
-            '&redirects=1' +
-            '&format=json' +
-             '&origin=*')
-        .then(response => response.json())
-        .then(response => dispatch(receiveGame({
-          title: response.query.pages[Object.keys(response.query.pages)[0]].title,
-          text: response.query.pages[Object.keys(response.query.pages)[0]].extract,
-          image: createImageLink(currentGame)
-        })))
-        .catch(error => dispatch(handleWikiError(error)))
-    );
+    return fetch(
+      'https://en.wikipedia.org/w/api.php?' +
+        '&action=query' +
+        '&titles=' +
+        encodeURIComponent(currentGame) +
+        '&prop=extracts' +
+        '&exintro=' +
+        '&redirects=1' +
+        '&format=json' +
+        '&origin=*'
+    )
+      .then(response => response.json())
+      .then(response =>
+        dispatch(
+          receiveGame({
+            title:
+              response.query.pages[Object.keys(response.query.pages)[0]].title,
+            text:
+              response.query.pages[Object.keys(response.query.pages)[0]]
+                .extract,
+            image: createImageLink(currentGame),
+          })
+        )
+      )
+      .catch(error => dispatch(handleWikiError(error)));
   };
 };
 
@@ -63,7 +72,7 @@ export const initialState = {
   isError: false,
   title: '',
   text: '',
-  image: 'not_found'
+  image: 'not_found',
 };
 
 // Reducer
@@ -81,13 +90,13 @@ export default (state = initialState, action) => {
         isFetching: action.isFetching,
         title: action.title,
         text: action.text,
-        image: action.image
+        image: action.image,
       };
     case HANDLE_WIKI_ERROR:
       return {
         ...state,
         isFetching: action.isFetching,
-        isError: action.isError
+        isError: action.isError,
       };
     default:
       return state;
