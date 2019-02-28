@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/ianrosedev/Super-Nintendo-Game-Info#readme",
   "dependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "^4.1.0"
   },
   "scripts": {
     "install-all": "npm install && (cd client && npm install) && (cd server && npm install)",
