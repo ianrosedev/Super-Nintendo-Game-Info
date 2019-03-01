@@ -6,7 +6,7 @@ const app = express();
 
 app.get('/videos/:game', (request, response) => {
   youTubeSearch(
-    request.params.game + ' snes',
+    `${request.params.game} snes`,
     { key: youTubeKey, maxResults: 3 },
     (youTubeError, youTubeResponse) => {
       if (youTubeError) {
