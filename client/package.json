@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "start": "react-scripts start",
-    "test": "react-scripts -r enzyme-adapter-react-16 test --env=jsdom"
+    "test": "react-scripts -r enzyme-adapter-react-16 test --env=jsdom --verbose=false"
   },
   "devDependencies": {
     "enzyme": "^3.9.0",

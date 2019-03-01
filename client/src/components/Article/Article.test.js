@@ -1,20 +1,22 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Article from './Article';
-import { featuredGame } from '../../static/featuredGame';
+import { createMemoryHistory } from 'history';
+import { Article } from './Article';
 import Spinner from '../Spinner/Spinner';
 import Title from '../Title/Title';
 import Text from '../Text/Text';
 import Image from '../Image/Image';
 import MoreButton from '../MoreButton/MoreButton';
-import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 
 describe('Article', () => {
   let mountedArticle;
   const article = () => {
+    const history = createMemoryHistory('/somegame');
+
     if (!mountedArticle) {
-      mountedArticle = shallow(<Article {...props} />);
+      mountedArticle = shallow(<Article history={history} {...props} />);
     }
+
     return mountedArticle;
   };
   let props;
@@ -39,7 +41,7 @@ describe('Article', () => {
   describe('when `isLandingPage`', () => {
     describe('is false', () => {
       it('does not render `MoreButton`', () => {
-        expect(article().find(MoreButton).length).toBe(0);
+        expect(article().find('MoreButton').length).toBe(0);
       });
     });
 
@@ -48,8 +50,7 @@ describe('Article', () => {
         props.isLandingPage = true;
       });
 
-      fit('always renders `MoreButton`', () => {
-        console.log(article().find(MoreButton));
+      it('always renders `MoreButton`', () => {
         expect(article().find(MoreButton).length).toBe(1);
       });
     });

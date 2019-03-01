@@ -55,6 +55,11 @@ describe('gameDetail', () => {
     };
 
     it('calls RECEIVE_GAME when fetching Wikipedia article is done', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = {
         query: {
           pages: {
@@ -65,7 +70,6 @@ describe('gameDetail', () => {
           },
         },
       };
-
       const expectedActions = [
         {
           type: duck.REQUEST_GAME,
@@ -80,7 +84,6 @@ describe('gameDetail', () => {
           image: createImageLink('Super Mario World'),
         },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
@@ -97,17 +100,21 @@ describe('gameDetail', () => {
           )
         );
 
-      return store.dispatch(duck.fetchGame('Super Mario World')).then(() => {
+      return store.dispatch(duck.fetchGame(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
 
     it('catches an error with HANDLE_WIKI_ERROR', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = {
         status: 404,
         statusText: 'Not Found',
       };
-
       const expectedActions = [
         {
           type: duck.REQUEST_GAME,
@@ -120,7 +127,6 @@ describe('gameDetail', () => {
           isError: true,
         },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
@@ -137,7 +143,7 @@ describe('gameDetail', () => {
           )
         );
 
-      return store.dispatch(duck.fetchGame('Super Mario World')).then(() => {
+      return store.dispatch(duck.fetchGame(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });

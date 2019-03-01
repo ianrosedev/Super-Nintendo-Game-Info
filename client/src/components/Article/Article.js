@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import fullGamesList from '../../static/fullGamesList';
 import { featuredGame } from '../../static/featuredGame';
 import Spinner from '../Spinner/Spinner';
 import Title from '../Title/Title';
@@ -8,9 +10,6 @@ import Image from '../Image/Image';
 import MoreButton from '../MoreButton/MoreButton';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 import './Article.css';
-
-import { withRouter } from 'react-router-dom';
-import fullGamesList from '../../static/fullGamesList';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
@@ -78,4 +77,6 @@ class Article extends Component {
 
 Article.propTypes = propTypes;
 
+// Export unwrapped for testing
+export { Article };
 export default withRouter(Article);
