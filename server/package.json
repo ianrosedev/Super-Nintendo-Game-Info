@@ -6,16 +6,10 @@
   "license": "ISC",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --fix --ignore-path .gitignore .",
-    "start": "node -r esm index.js",
-    "start-dev": "nodemon -r esm index.js"
+    "lint": "eslint --fix --ignore-path .gitignore ."
   },
   "dependencies": {
-    "esm": "^3.2.7",
     "express": "^4.16.4",
     "youtube-search": "^1.1.4"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.10"
   }
 }
