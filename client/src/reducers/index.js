@@ -9,10 +9,7 @@ const rootReducer = combineReducers({
   currentGame,
   searchableGamesList,
   gameDetail,
-  selectedVideosList
+  selectedVideosList,
 });
 
-export const store = createStore(
-  rootReducer,
-  applyMiddleware(thunk)
-);
+export const store = createStore(rootReducer, applyMiddleware(thunk));

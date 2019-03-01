@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import SearchBar from '../SearchBar/SearchBar'
+import SearchBar from '../SearchBar/SearchBar';
 import GamesList from './GamesList';
 import Game from '../Game/Game';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
@@ -10,7 +10,7 @@ describe('GamesList', () => {
   let props = {
     query: '',
     updateQuery: jest.fn(),
-    clearQuery: jest.fn()
+    clearQuery: jest.fn(),
   };
 
   beforeEach(() => {
@@ -29,7 +29,7 @@ describe('GamesList', () => {
     it('if the query has a match renders an `ul`', () => {
       wrapper.setProps({
         ...props,
-        query: 'Super Mario World'
+        query: 'Super Mario World',
       });
 
       expect(wrapper.find('ul').length).toBe(1);
@@ -38,7 +38,7 @@ describe('GamesList', () => {
     it('if the query has no match it renders a `p`', () => {
       wrapper.setProps({
         ...props,
-        query: 'somethingThatWontBeBound'
+        query: 'somethingThatWontBeBound',
       });
 
       expect(wrapper.find('p').length).toBe(1);

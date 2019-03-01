@@ -5,17 +5,17 @@ import './Navbar.css';
 const Navbar = ({ history }) => (
   <div className='navbar'>
     <span className='nav-link'>
-      {(history.location.pathname === '/') ? (
+      {history.location.pathname === '/' ? (
         <a href='#full-games-list'>
-          <i className='fa fa-gamepad' aria-hidden='true'></i>
+          <i className='fa fa-gamepad' aria-hidden='true' />
           Full List
-      </a>
+        </a>
       ) : (
-          <Link to='/'>
-            <i className='fa fa-home' aria-hidden='true'></i>
-            Home
-      </Link>
-        )}
+        <Link to='/'>
+          <i className='fa fa-home' aria-hidden='true' />
+          Home
+        </Link>
+      )}
     </span>
   </div>
 );

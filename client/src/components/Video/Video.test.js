@@ -6,7 +6,7 @@ describe('Video', () => {
   let wrapper;
   const props = {
     selectedGame: 'Super Mario World',
-    video: '123456'
+    video: '123456',
   };
 
   beforeEach(() => {

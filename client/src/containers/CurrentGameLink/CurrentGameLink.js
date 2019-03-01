@@ -3,7 +3,7 @@ import { setCurrentGame } from '../../reducers/currentGame/currentGame';
 import GameLink from '../../components/GameLink/GameLink';
 
 const mapDispatchToProps = {
-  setCurrentGame
+  setCurrentGame,
 };
 
 const CurrentGameLink = connect(

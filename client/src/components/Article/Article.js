@@ -18,14 +18,14 @@ const propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  fetchGame: PropTypes.func.isRequired
+  fetchGame: PropTypes.func.isRequired,
 };
 
 class Article extends Component {
   componentDidMount() {
     const { history, fetchGame } = this.props;
 
-    const currentGame = fullGamesList.find((game) => {
+    const currentGame = fullGamesList.find(game => {
       return game.url === history.location.pathname.slice(1);
     });
 
@@ -33,7 +33,14 @@ class Article extends Component {
   }
 
   render() {
-    const { isLandingPage, isFetching, isError, title, text, image } = this.props;
+    const {
+      isLandingPage,
+      isFetching,
+      isError,
+      title,
+      text,
+      image,
+    } = this.props;
 
     if (isError) {
       return (
@@ -44,7 +51,7 @@ class Article extends Component {
     } else {
       return (
         <div className='article'>
-          {(isFetching) ? (
+          {isFetching ? (
             <Spinner />
           ) : (
             <div>
@@ -54,13 +61,13 @@ class Article extends Component {
                 alt={title + ' box artwork'}
               />
               <Text text={text} />
-              {isLandingPage &&
+              {isLandingPage && (
                 <MoreButton arrowDirection='right'>
                   <CurrentGameLink game={featuredGame}>
                     See More
                   </CurrentGameLink>
                 </MoreButton>
-              }
+              )}
             </div>
           )}
         </div>

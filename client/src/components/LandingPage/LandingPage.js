@@ -7,17 +7,11 @@ import './LandingPage.css';
 
 const LandingPage = () => (
   <div className='landing-page'>
-    <HeaderContainer
-      title='Featured Game'
-      icon='fa fa-star'
-    >
+    <HeaderContainer title='Featured Game' icon='fa fa-star'>
       <GameDetail isLandingPage={true} />
     </HeaderContainer>
-    <span id='full-games-list' aria-hidden='true'></span>
-    <HeaderContainer
-      title='Full Game Listing'
-      icon='fa fa-gamepad'
-    >
+    <span id='full-games-list' aria-hidden='true' />
+    <HeaderContainer title='Full Game Listing' icon='fa fa-gamepad'>
       <SearchableGamesList />
     </HeaderContainer>
   </div>

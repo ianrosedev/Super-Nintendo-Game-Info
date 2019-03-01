@@ -3,13 +3,11 @@ import PropTypes from 'prop-types';
 import './BasicContainer.css';
 
 const propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 const BasicContainer = ({ children }) => (
-  <div className='basic-container'>
-    {children}
-  </div>
+  <div className='basic-container'>{children}</div>
 );
 
 BasicContainer.propTypes = propTypes;

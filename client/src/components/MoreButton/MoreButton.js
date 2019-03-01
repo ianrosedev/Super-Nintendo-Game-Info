@@ -4,12 +4,12 @@ import './MoreButton.css';
 
 const propTypes = {
   arrowDirection: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };
 
 const MoreButton = ({ arrowDirection, children }) => (
   <div className='more-button'>
-    <i className={`fa fa-arrow-${arrowDirection}`}></i>
+    <i className={`fa fa-arrow-${arrowDirection}`} />
     {children}
   </div>
 );

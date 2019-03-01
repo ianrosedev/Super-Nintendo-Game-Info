@@ -6,7 +6,7 @@ describe('MoreButton', () => {
   let wrapper;
   const props = {
     arrowDirection: 'right',
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {
