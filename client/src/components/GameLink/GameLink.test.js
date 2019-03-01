@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom';
 describe('GameLink', () => {
   let wrapper;
   let props = {
-    link: 'Super Mario World',
+    game: {
+      wiki: 'Battletoads in Battlemaniacs',
+      url: 'battletoads-in-battlemaniacs',
+      image: 'battletoads_in_battlemaniacs',
+    },
     setCurrentGame: jest.fn(),
     children: '',
   };
@@ -16,7 +20,7 @@ describe('GameLink', () => {
   });
 
   it('renders without crashing', () => {
-    wrapper;
+    wrapper; // eslint-disable-line
   });
 
   describe('it always renders', () => {

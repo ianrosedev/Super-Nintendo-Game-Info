@@ -51,4 +51,6 @@ class VideosList extends Component {
 
 VideosList.propTypes = propTypes;
 
+// Export unwrapped for testing
+export { VideosList };
 export default withRouter(VideosList);

@@ -32,7 +32,6 @@ export const handleVideoError = () => ({
 export const fetchVideos = game => {
   return dispatch => {
     const currentGame = game ? game.wiki : '';
-    console.log('Current game', currentGame);
 
     if (!currentGame) return;
 

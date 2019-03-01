@@ -60,8 +60,12 @@ describe('selectedVideosList', () => {
     };
 
     it('calls RECEIVE_VIDEOS when fetching the YouTube videos is done', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = ['foo', 'bar', 'baz'];
-
       const expectedActions = [
         {
           type: duck.SET_SELECTED_GAME,
@@ -78,7 +82,6 @@ describe('selectedVideosList', () => {
           videos: ['foo', 'bar', 'baz'],
         },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
@@ -94,17 +97,21 @@ describe('selectedVideosList', () => {
           )
         );
 
-      return store.dispatch(duck.fetchVideos('Super Mario World')).then(() => {
+      store.dispatch(duck.fetchVideos(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
 
     it('catches an error with HANDLE_VIDEO_ERROR', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = {
         status: 404,
         statusText: 'Not Found',
       };
-
       const expectedActions = [
         {
           type: duck.SET_SELECTED_GAME,
@@ -121,7 +128,6 @@ describe('selectedVideosList', () => {
           isError: true,
         },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
@@ -137,11 +143,12 @@ describe('selectedVideosList', () => {
           )
         );
 
-      return store.dispatch(duck.fetchVideos('Super Mario World')).then(() => {
+      return store.dispatch(duck.fetchVideos(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });
+
   describe('reducer', () => {
     it('should return the initial state', () => {
       expect(reducer(undefined, {})).toEqual(duck.initialState);

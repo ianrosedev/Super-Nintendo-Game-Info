@@ -1,16 +1,19 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Navbar from './Navbar';
+import { Navbar } from './Navbar';
+import { createMemoryHistory } from 'history';
 
 describe('Navbar', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Navbar />);
+    const history = createMemoryHistory('/somegame');
+
+    wrapper = shallow(<Navbar history={history} />);
   });
 
   it('renders without crashing', () => {
-    wrapper;
+    wrapper; // eslint-disable-line
   });
 
   describe('it always renders', () => {

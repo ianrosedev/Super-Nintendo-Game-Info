@@ -20,4 +20,6 @@ const Navbar = ({ history }) => (
   </div>
 );
 
+// Export unwrapped for testing
+export { Navbar };
 export default withRouter(Navbar);
