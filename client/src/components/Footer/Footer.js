@@ -2,17 +2,18 @@
 import React from 'react';
 import history from '../../history';
 import { Link } from 'react-router-dom';
-import './Footer.css';
+import { HashLink } from 'react-router-hash-link';
+import './Footer.scss';
 
 const Footer = () => (
   <div className='footer'>
     {history.location.pathname === '/' ? (
       <span>
-        <a href='#' className='footer-logo'>
+        <Link to='/' className='footer-logo'>
           Super Nintendo Game Info
-        </a>
-        <a href='#full-games-list'>Full List</a>
-        <a href='#'>Top</a>
+        </Link>
+        <HashLink to='/#full-games-list'>Full List</HashLink>
+        <HashLink to='/#'>Top</HashLink>
       </span>
     ) : (
       <span>
@@ -20,7 +21,7 @@ const Footer = () => (
           Super Nintendo Game Info
         </Link>
         <Link to='/'>Home</Link>
-        <a href='#'>Top</a>
+        <HashLink to='#'>Top</HashLink>
       </span>
     )}
   </div>

@@ -4,7 +4,7 @@ import fullGamesList from '../../static/fullGamesList';
 import SearchBar from '../SearchBar/SearchBar';
 import Game from '../Game/Game';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
-import './GamesList.css';
+import './GamesList.scss';
 
 const propTypes = {
   query: PropTypes.string.isRequired,

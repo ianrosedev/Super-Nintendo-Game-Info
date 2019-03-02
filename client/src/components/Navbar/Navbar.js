@@ -1,6 +1,6 @@
 import React from 'react';
 import { withRouter, Link } from 'react-router-dom';
-import './Navbar.css';
+import './Navbar.scss';
 
 const Navbar = ({ history }) => (
   <div className='navbar'>

@@ -3,7 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import LandingPage from '../LandingPage/LandingPage';
 import SelectedGame from '../SelectedGame/SelectedGame';
 import NotFound from '../NotFound/NotFound';
-import './Body.css';
+import './Body.scss';
 
 const Body = () => (
   <div className='body'>

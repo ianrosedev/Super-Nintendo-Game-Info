@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Video.css';
+import './Video.scss';
 
 const propTypes = {
   selectedGame: PropTypes.string.isRequired,

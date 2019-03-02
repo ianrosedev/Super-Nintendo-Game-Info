@@ -13,10 +13,10 @@
   "scripts": {
     "coverage": "react-scripts test --env=jsdom --coverage",
     "build": "npm run build-css && react-scripts build",
-    "eject": "react-scripts eject",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "start": "react-scripts start",
-    "test": "SKIP_PREFLIGHT_CHECK=true react-scripts -r enzyme-adapter-react-16 test --env=jsdom --verbose=false"
+    "test": "react-scripts -r enzyme-adapter-react-16 test --env=jsdom",
+    "test-ci": "CI=true react-scripts -r enzyme-adapter-react-16 test --findRelatedTests --env=jsdom"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",
@@ -26,6 +26,7 @@
     "react-dom": "^16.8.3",
     "react-redux": "^6.0.1",
     "react-router-dom": "^4.3.1",
+    "react-router-hash-link": "^1.2.1",
     "react-scripts": "^2.1.5",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0"

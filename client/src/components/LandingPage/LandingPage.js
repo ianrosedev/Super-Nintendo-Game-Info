@@ -3,7 +3,7 @@ import GameDetail from '../../containers/GameDetail/GameDetail';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import SearchableGamesList from '../../containers/SearchableGamesList/SearchableGamesList';
 import scrollToTopOnMount from '../../hocs/scrollToTopOnMount';
-import './LandingPage.css';
+import './LandingPage.scss';
 
 const LandingPage = () => (
   <div className='landing-page'>

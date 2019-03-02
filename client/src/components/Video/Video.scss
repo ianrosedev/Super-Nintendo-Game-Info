@@ -1,4 +1,4 @@
-@import 'media/styles/_sizes';
+@import '_sizes';
 
 .video {
   width: 32vw;
@@ -14,6 +14,6 @@
     width: calc(180px + 32vw);
     max-width: 85vw;
     height: calc(180px + 18vw);
-    margin: 0 0 5vh 0
+    margin: 0 0 5vh 0;
   }
 }

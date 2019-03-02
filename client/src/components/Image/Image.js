@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Image.css';
+import './Image.scss';
 
 const propTypes = {
   image: PropTypes.string.isRequired,

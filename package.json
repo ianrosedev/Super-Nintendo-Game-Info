@@ -13,7 +13,7 @@
   },
   "homepage": "https://github.com/ianrosedev/Super-Nintendo-Game-Info#readme",
   "scripts": {
-    "coverage-client": "CI=true SKIP_PREFLIGHT_CHECK=true npm run coverage --prefix client",
+    "coverage-client": "npm run coverage --prefix client",
     "coverage-report-client": "npm run coverage-client && codecov",
     "format": "prettier --check --write \"**/*.{js, json, html, scss, md}\"",
     "format-ci": "prettier -l --write \"**/*.{js, json, html, scss, md}\"",
@@ -24,9 +24,8 @@
     "start-dev-client": "npm start --prefix client",
     "start-dev-server": "nodemon -r esm --inspect --ignore \"client\" index.js || exit 0",
     "test": "npm run test-client",
-    "test-ci": "npm run coverage-client",
     "test-client": "npm test --prefix client",
-    "test-client-ci": "CI=true npm test --prefix client"
+    "test-client-ci": "npm run test-ci --prefix client"
   },
   "husky": {
     "hooks": {
@@ -34,17 +33,15 @@
     }
   },
   "lint-staged": {
-    "linters": {
-      "*.{js, json, html, scss, md}": [
-        "prettier --write",
-        "eslint --fix",
-        "git add"
-      ],
-      "client/**/*.{js, json, html, css, scss, md}": [
-        "npm test",
-        "git add"
-      ]
-    }
+    "*.{js, json, html, scss, md}": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "client/**/*.{js, json, html, scss, md}": [
+      "npm run test-client-ci",
+      "git add"
+    ]
   },
   "dependencies": {
     "esm": "^3.2.7"

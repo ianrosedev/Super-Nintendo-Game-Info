@@ -2,8 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import SearchBar from '../SearchBar/SearchBar';
 import GamesList from './GamesList';
-import Game from '../Game/Game';
-import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
 
 describe('GamesList', () => {
   let wrapper;

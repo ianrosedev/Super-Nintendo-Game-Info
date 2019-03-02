@@ -4,7 +4,7 @@ import SelectedVideosList from '../../containers/SelectedVideosList/SelectedVide
 import BasicContainer from '../BasicContainer/BasicContainer';
 import HeaderContainer from '../HeaderContainer/HeaderContainer';
 import scrollToTopOnMount from '../../hocs/scrollToTopOnMount';
-import './SelectedGame.css';
+import './SelectedGame.scss';
 
 const SelectedGame = () => (
   <div className='selected-game'>

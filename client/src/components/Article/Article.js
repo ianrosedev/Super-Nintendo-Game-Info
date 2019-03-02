@@ -9,7 +9,7 @@ import Text from '../Text/Text';
 import Image from '../Image/Image';
 import MoreButton from '../MoreButton/MoreButton';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
-import './Article.css';
+import './Article.scss';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
