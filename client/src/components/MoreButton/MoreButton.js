@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './MoreButton.css';
+import './MoreButton.scss';
 
 const propTypes = {
   arrowDirection: PropTypes.string.isRequired,

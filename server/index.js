@@ -1,25 +1,29 @@
 import express from 'express';
-import youTubeSearch from 'youtube-search';
-import { youTubeKey } from './helpers/keys';
+import youtubeSearch from 'youtube-search';
 
+const youtubeKey = process.env.YOUTUBE_KEY;
 const app = express();
 
-app.get('/videos/:game', (request, response) => {
-  youTubeSearch(
-    `${request.params.game} snes`,
-    { key: youTubeKey, maxResults: 3 },
-    (youTubeError, youTubeResponse) => {
-      if (youTubeError) {
-        return response.status(404).send({
-          message: youTubeError,
+app.get('/videos/:game', (req, res) => {
+  if (!youtubeKey) {
+    return res.status(500).json({ error: 'Server error' });
+  }
+
+  youtubeSearch(
+    `${req.params.game} snes`,
+    { key: youtubeKey, maxResults: 3 },
+    (youtubeErr, youtubeRes) => {
+      if (youtubeErr) {
+        return res.status(500).json({
+          message: youtubeErr,
         });
       }
 
-      const videos = youTubeResponse.map(video =>
+      const videos = youtubeRes.map(video =>
         video.link.substr(video.link.indexOf('=') + 1)
       );
 
-      response.send(videos);
+      res.json(videos);
     }
   );
 });

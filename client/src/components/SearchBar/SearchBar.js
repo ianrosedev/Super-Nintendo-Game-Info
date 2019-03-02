@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchBar.css';
+import './SearchBar.scss';
 
 const propTypes = {
   query: PropTypes.string.isRequired,

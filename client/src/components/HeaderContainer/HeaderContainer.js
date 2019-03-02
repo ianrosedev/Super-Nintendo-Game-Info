@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './HeaderContainer.css';
+import './HeaderContainer.scss';
 
 const propTypes = {
   title: PropTypes.string.isRequired,

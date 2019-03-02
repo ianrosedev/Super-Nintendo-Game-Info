@@ -13,7 +13,7 @@ describe('Navbar', () => {
   });
 
   it('renders without crashing', () => {
-    wrapper; // eslint-disable-line
+    wrapper;
   });
 
   describe('it always renders', () => {

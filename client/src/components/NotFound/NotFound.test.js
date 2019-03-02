@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { shallow } from 'enzyme';
 import NotFound from './NotFound';
-import BasicContainer from '../BasicContainer/BasicContainer';
-import MoreButton from '../MoreButton/MoreButton';
 
 describe('NotFound', () => {
   let wrapper;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Title.css';
+import './Title.scss';
 
 const propTypes = {
   title: PropTypes.string.isRequired,

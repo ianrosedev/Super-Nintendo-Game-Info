@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 11
+branches:
+  only:
+    - master
+    - development
+    - /^release\/v\d+\.\d+\.\d+(-(alpha|beta).*)?$/ # Releases
+install:
+  - npm run install-all
+script:
+  - npm run format-ci
+  - npm run lint
+  - npm run test-ci
+after_success:
+  - npm run coverage-report-client

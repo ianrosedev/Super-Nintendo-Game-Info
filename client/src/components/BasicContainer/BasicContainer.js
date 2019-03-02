@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './BasicContainer.css';
+import './BasicContainer.scss';
 
 const propTypes = {
   children: PropTypes.node.isRequired,

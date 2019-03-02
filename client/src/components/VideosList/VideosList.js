@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Spinner from '../Spinner/Spinner';
-import Video from '../Video/Video';
-import './VideosList.css';
-
 import { withRouter } from 'react-router-dom';
 import fullGamesList from '../../static/fullGamesList';
+import Spinner from '../Spinner/Spinner';
+import Video from '../Video/Video';
+import './VideosList.scss';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
