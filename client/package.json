@@ -16,7 +16,8 @@
     "lint": "eslint --fix --ignore-path .gitignore .",
     "start": "react-scripts start",
     "test": "react-scripts -r enzyme-adapter-react-16 test --env=jsdom",
-    "test-ci": "CI=true react-scripts -r enzyme-adapter-react-16 test --findRelatedTests --env=jsdom"
+    "test-ci": "CI=true react-scripts -r enzyme-adapter-react-16 test --env=jsdom",
+    "test-pre-commit": "CI=true react-scripts -r enzyme-adapter-react-16 test --findRelatedTests --env=jsdom"
   },
   "dependencies": {
     "font-awesome": "^4.7.0",

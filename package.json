@@ -26,7 +26,8 @@
     "test": "npm run test-client",
     "test-ci": "npm run test-client-ci",
     "test-client": "npm test --prefix client",
-    "test-client-ci": "npm run test-ci --prefix client"
+    "test-client-ci": "npm run test-ci --prefix client",
+    "test-client-pre-commit": "npm run test-pre-commit --prefix client"
   },
   "husky": {
     "hooks": {
@@ -40,7 +41,7 @@
       "git add"
     ],
     "client/**/*.{js, json, html, scss, md}": [
-      "npm run test-client-ci",
+      "npm run test-client-pre-commit",
       "git add"
     ]
   },
