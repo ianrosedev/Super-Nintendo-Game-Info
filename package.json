@@ -24,6 +24,7 @@
     "start-dev-client": "npm start --prefix client",
     "start-dev-server": "nodemon -r esm --inspect --ignore \"client\" index.js || exit 0",
     "test": "npm run test-client",
+    "test-ci": "npm run test-client-ci",
     "test-client": "npm test --prefix client",
     "test-client-ci": "npm run test-ci --prefix client"
   },
