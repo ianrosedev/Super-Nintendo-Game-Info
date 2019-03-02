@@ -5,12 +5,11 @@
 
 # testing
 /coverage
+.nyc_output
+*.lcov
 
 # production
 /build
-
-# secrets
-.keys.yml
 
 # misc
 .DS_Store
