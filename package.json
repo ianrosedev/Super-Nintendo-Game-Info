@@ -6,22 +6,27 @@
   "license": "ISC",
   "main": "index.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ianrosedev/Super-Nintendo-Game-Info.git"
+    "url": "https://github.com/ianrosedev/Super-Nintendo-Game-Info"
   },
   "bugs": {
     "url": "https://github.com/ianrosedev/Super-Nintendo-Game-Info/issues"
   },
   "homepage": "https://github.com/ianrosedev/Super-Nintendo-Game-Info#readme",
   "scripts": {
+    "coverage-client": "CI=true SKIP_PREFLIGHT_CHECK=true npm run coverage --prefix client",
+    "coverage-report-client": "npm run coverage-client && codecov",
     "format": "prettier --check --write \"**/*.{js, json, html, scss, md}\"",
     "format-ci": "prettier -l --write \"**/*.{js, json, html, scss, md}\"",
     "install-all": "concurrently \"npm install\" \"cd client && npm install\" \"cd server && npm install\"",
     "lint": "concurrently \"cd client && npm run lint\" \"cd server && npm run lint\"",
-    "start": "",
+    "start": "node -r esm index.js",
     "start-dev": "concurrently -n SERVER,CLIENT -c blue,cyan -k \"npm:start-dev-server\" \"npm:start-dev-client\"",
     "start-dev-client": "npm start --prefix client",
-    "start-dev-server": "nodemon -r esm --inspect --ignore \"client\" index.js || exit 0"
+    "start-dev-server": "nodemon -r esm --inspect --ignore \"client\" index.js || exit 0",
+    "test": "npm run test-client",
+    "test-ci": "npm run coverage-client",
+    "test-client": "npm test --prefix client",
+    "test-client-ci": "CI=true npm test --prefix client"
   },
   "husky": {
     "hooks": {
@@ -30,14 +35,13 @@
   },
   "lint-staged": {
     "linters": {
-      "client/src/**/*.{js, json, html, scss, md}": [
+      "*.{js, json, html, scss, md}": [
         "prettier --write",
         "eslint --fix",
         "git add"
       ],
-      "server/**/*.{js, json, md}": [
-        "prettier --write",
-        "eslint --fix",
+      "client/**/*.{js, json, html, css, scss, md}": [
+        "npm test",
         "git add"
       ]
     }
@@ -48,6 +52,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
+    "codecov": "^3.2.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^4.1.0",
