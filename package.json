@@ -12,7 +12,12 @@
     "url": "https://github.com/ianrosedev/Super-Nintendo-Game-Info/issues"
   },
   "homepage": "https://github.com/ianrosedev/Super-Nintendo-Game-Info#readme",
+  "engines": {
+    "node": "11.x"
+  },
+  "heroku-run-build-script": true,
   "scripts": {
+    "build": "(cd server && npm install) && (cd client && npm install && npm run build)",
     "coverage-client": "npm run coverage --prefix client",
     "coverage-report-client": "npm run coverage-client && codecov",
     "format": "prettier --check --write \"**/*.{js, json, html, scss, md}\"",

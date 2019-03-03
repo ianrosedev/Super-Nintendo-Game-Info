@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import helmet from 'helmet';
 import compression from 'compression';
 import youtubeSearch from 'youtube-search';
@@ -20,6 +21,9 @@ app.use(helmet());
 
 // Compress responses
 app.use(compression());
+
+// Frontend - static files
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // YouTube API key
 const youtubeKey = process.env.YOUTUBE_KEY;
@@ -47,6 +51,11 @@ app.get('/videos/:game', (req, res) => {
       res.json(videos);
     }
   );
+});
+
+// Frontend
+app.get('*', (req, res) => {
+  res.sendFile(path.join(`${__dirname}../client/build/index.html`));
 });
 
 export default app;
