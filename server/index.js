@@ -1,9 +1,21 @@
 import express from 'express';
+import helmet from 'helmet';
+import compression from 'compression';
 import youtubeSearch from 'youtube-search';
 
-const youtubeKey = process.env.YOUTUBE_KEY;
+// App
 const app = express();
 
+// Security
+app.use(helmet());
+
+// Compress responses
+app.use(compression());
+
+// YouTube API key
+const youtubeKey = process.env.YOUTUBE_KEY;
+
+// YouTube route
 app.get('/videos/:game', (req, res) => {
   if (!youtubeKey) {
     return res.status(500).json({ error: 'Server error' });
