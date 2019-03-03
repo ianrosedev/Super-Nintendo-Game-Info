@@ -1,5 +1,4 @@
 import { createImageLink } from '../../helpers/strings';
-import history from '../../history';
 
 // Constants
 export const REQUEST_GAME = 'REQUEST_GAME';
@@ -33,8 +32,9 @@ export const fetchGame = game => {
   return dispatch => {
     const currentGame = game.wiki;
 
-    // FIX
-    if (!currentGame) return history.push('/');
+    if (!currentGame) {
+      throw new TypeError('Argument `game.wiki` is reqired!');
+    }
 
     dispatch(requestGame());
 

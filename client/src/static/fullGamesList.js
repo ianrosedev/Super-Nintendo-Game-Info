@@ -175,9 +175,9 @@ export default [
   { wiki: 'Axelay', url: 'axelay', image: 'axelay' },
   { wiki: 'B.O.B.', url: 'bob', image: 'bob' },
   {
-    wiki: 'Ballz 3D: Fighting ',
-    url: 'ballz-3d-fighting-',
-    image: 'ballz_3d_-_fighting_',
+    wiki: 'Ballz 3D: Fighting',
+    url: 'ballz-3d-fighting',
+    image: 'ballz_3d_-_fighting',
   },
   {
     wiki: 'Barbie Super Model',
