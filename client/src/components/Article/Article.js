@@ -22,11 +22,15 @@ const propTypes = {
 
 class Article extends Component {
   componentDidMount() {
-    const { history, fetchGame } = this.props;
-
+    const { history, isLandingPage, fetchGame } = this.props;
     const currentGame = fullGamesList.find(game => {
       return game.url === history.location.pathname.slice(1);
     });
+
+    if (!currentGame && !isLandingPage) {
+      // If game dosen't exist go back to homepage
+      return history.push('/');
+    }
 
     fetchGame(currentGame || featuredGame);
   }
