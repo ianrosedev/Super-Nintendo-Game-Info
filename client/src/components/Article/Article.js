@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import fullGamesList from '../../static/fullGamesList';
 import { featuredGame } from '../../static/featuredGame';
 import Spinner from '../Spinner/Spinner';
 import Title from '../Title/Title';
@@ -7,27 +9,41 @@ import Text from '../Text/Text';
 import Image from '../Image/Image';
 import MoreButton from '../MoreButton/MoreButton';
 import CurrentGameLink from '../../containers/CurrentGameLink/CurrentGameLink';
-import './Article.css';
+import './Article.scss';
 
 const propTypes = {
-  isLandingPage: PropTypes.bool,
   isFetching: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  fetchGame: PropTypes.func.isRequired
+  fetchGame: PropTypes.func.isRequired,
 };
 
 class Article extends Component {
   componentDidMount() {
-    const { isLandingPage, fetchGame } = this.props;
+    const { history, isLandingPage, fetchGame } = this.props;
+    const currentGame = fullGamesList.find(game => {
+      return game.url === history.location.pathname.slice(1);
+    });
 
-    isLandingPage ? fetchGame(featuredGame) : fetchGame()
+    if (!currentGame && !isLandingPage) {
+      // If game dosen't exist go back to homepage
+      return history.push('/');
+    }
+
+    fetchGame(currentGame || featuredGame);
   }
 
   render() {
-    const { isLandingPage, isFetching, isError, title, text, image } = this.props;
+    const {
+      isLandingPage,
+      isFetching,
+      isError,
+      title,
+      text,
+      image,
+    } = this.props;
 
     if (isError) {
       return (
@@ -38,7 +54,7 @@ class Article extends Component {
     } else {
       return (
         <div className='article'>
-          {(isFetching) ? (
+          {isFetching ? (
             <Spinner />
           ) : (
             <div>
@@ -48,13 +64,13 @@ class Article extends Component {
                 alt={title + ' box artwork'}
               />
               <Text text={text} />
-              {isLandingPage &&
+              {isLandingPage && (
                 <MoreButton arrowDirection='right'>
-                  <CurrentGameLink link={featuredGame}>
+                  <CurrentGameLink game={featuredGame}>
                     See More
                   </CurrentGameLink>
                 </MoreButton>
-              }
+              )}
             </div>
           )}
         </div>
@@ -65,4 +81,6 @@ class Article extends Component {
 
 Article.propTypes = propTypes;
 
-export default Article;
+// Export unwrapped for testing
+export { Article };
+export default withRouter(Article);

@@ -8,7 +8,7 @@ describe('selectedVideosList', () => {
       const game = 'Super Mario World';
       const expectedAction = {
         type: duck.SET_SELECTED_GAME,
-        selectedGame: game
+        selectedGame: game,
       };
 
       expect(duck.setSelectedGame(game)).toEqual(expectedAction);
@@ -18,7 +18,7 @@ describe('selectedVideosList', () => {
       const expectedAction = {
         type: duck.REQUEST_VIDEOS,
         isFetching: true,
-        isError: false
+        isError: false,
       };
 
       expect(duck.requestVideos()).toEqual(expectedAction);
@@ -29,7 +29,7 @@ describe('selectedVideosList', () => {
       const expectedAction = {
         type: duck.RECEIVE_VIDEOS,
         isFetching: false,
-        videos: videos
+        videos: videos,
       };
 
       expect(duck.receiveVideos(videos)).toEqual(expectedAction);
@@ -39,7 +39,7 @@ describe('selectedVideosList', () => {
       const expectedAction = {
         type: duck.HANDLE_VIDEO_ERROR,
         isFetching: false,
-        isError: true
+        isError: true,
       };
 
       expect(duck.handleVideoError()).toEqual(expectedAction);
@@ -54,143 +54,166 @@ describe('selectedVideosList', () => {
         status: status,
         statusText: statusText,
         headers: {
-          'Content-type': 'application/json'
-        }
+          'Content-type': 'application/json',
+        },
       });
     };
 
     it('calls RECEIVE_VIDEOS when fetching the YouTube videos is done', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = ['foo', 'bar', 'baz'];
-
       const expectedActions = [
         {
           type: duck.SET_SELECTED_GAME,
-          selectedGame: 'Super Mario World'
+          selectedGame: 'Super Mario World',
         },
         {
           type: duck.REQUEST_VIDEOS,
           isFetching: true,
-          isError: false
+          isError: false,
         },
         {
           type: duck.RECEIVE_VIDEOS,
           isFetching: false,
-          videos: ['foo', 'bar', 'baz']
-        }
+          videos: ['foo', 'bar', 'baz'],
+        },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
         selectedGame: '',
-        videos: []
+        videos: [],
       });
 
-      window.fetch = jest.fn().mockImplementation(() =>
-        Promise.resolve(mockResponse(200, null, JSON.stringify(expectedReply)))
-      );
+      window.fetch = jest
+        .fn()
+        .mockImplementation(() =>
+          Promise.resolve(
+            mockResponse(200, null, JSON.stringify(expectedReply))
+          )
+        );
 
-      return store.dispatch(duck.fetchVideos('Super Mario World')).then(() => {
+      store.dispatch(duck.fetchVideos(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
 
     it('catches an error with HANDLE_VIDEO_ERROR', () => {
+      const game = {
+        wiki: 'Super Mario World',
+        url: 'super-mario-world',
+        image: 'super_mario_world',
+      };
       const expectedReply = {
         status: 404,
-        statusText: 'Not Found'
+        statusText: 'Not Found',
       };
-
       const expectedActions = [
         {
           type: duck.SET_SELECTED_GAME,
-          selectedGame: 'Super Mario World'
+          selectedGame: 'Super Mario World',
         },
         {
           type: duck.REQUEST_VIDEOS,
           isFetching: true,
-          isError: false
+          isError: false,
         },
         {
           type: duck.HANDLE_VIDEO_ERROR,
           isFetching: false,
-          isError: true
-        }
+          isError: true,
+        },
       ];
-
       const store = mockStore({
         isFetching: false,
         isError: false,
         selectedGame: '',
-        videos: []
+        videos: [],
       });
 
-      window.fetch = jest.fn().mockImplementation(() => Promise.resolve(
-        mockResponse(404, 'Not Found', JSON.stringify(expectedReply)))
-      );
+      window.fetch = jest
+        .fn()
+        .mockImplementation(() =>
+          Promise.resolve(
+            mockResponse(404, 'Not Found', JSON.stringify(expectedReply))
+          )
+        );
 
-      return store.dispatch(duck.fetchVideos('Super Mario World')).then(() => {
+      return store.dispatch(duck.fetchVideos(game)).then(() => {
         expect(store.getActions()).toEqual(expectedActions);
       });
     });
   });
+
   describe('reducer', () => {
     it('should return the initial state', () => {
       expect(reducer(undefined, {})).toEqual(duck.initialState);
     });
 
     it('should handle SET_SELECTED_GAME', () => {
-      const game ='Super Mario World';
+      const game = 'Super Mario World';
 
-      expect(reducer(undefined, {
-        type: duck.SET_SELECTED_GAME,
-        selectedGame: game
-      })).toEqual({
+      expect(
+        reducer(undefined, {
+          type: duck.SET_SELECTED_GAME,
+          selectedGame: game,
+        })
+      ).toEqual({
         isFetching: false,
         isError: false,
         selectedGame: game,
-        videos: []
+        videos: [],
       });
     });
 
     it('should handle REQUEST_VIDEOS', () => {
-      expect(reducer(undefined, {
-        type: duck.REQUEST_VIDEOS,
-        isFetching: true,
-        isError: false
-      })).toEqual({
+      expect(
+        reducer(undefined, {
+          type: duck.REQUEST_VIDEOS,
+          isFetching: true,
+          isError: false,
+        })
+      ).toEqual({
         isFetching: true,
         isError: false,
         selectedGame: '',
-        videos: []
+        videos: [],
       });
     });
 
     it('should handle RECEIVE_VIDEOS', () => {
-      const videos= ['foo', 'bar', 'baz'];
+      const videos = ['foo', 'bar', 'baz'];
 
-      expect(reducer(undefined, {
-        type: duck.RECEIVE_VIDEOS,
-        isFetching: false,
-        videos: videos
-      })).toEqual({
+      expect(
+        reducer(undefined, {
+          type: duck.RECEIVE_VIDEOS,
+          isFetching: false,
+          videos: videos,
+        })
+      ).toEqual({
         isFetching: false,
         isError: false,
         selectedGame: '',
-        videos: videos
+        videos: videos,
       });
     });
 
     it('should handle HANDLE_VIDEO_ERROR', () => {
-      expect(reducer(undefined, {
-        type: duck.HANDLE_VIDEO_ERROR,
-        isFetching: false,
-        isError: true
-      })).toEqual({
+      expect(
+        reducer(undefined, {
+          type: duck.HANDLE_VIDEO_ERROR,
+          isFetching: false,
+          isError: true,
+        })
+      ).toEqual({
         isFetching: false,
         isError: true,
         selectedGame: '',
-        videos: []
+        videos: [],
       });
     });
   });

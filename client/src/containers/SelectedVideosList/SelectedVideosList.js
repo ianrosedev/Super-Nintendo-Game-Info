@@ -3,11 +3,11 @@ import { fetchVideos } from '../../reducers/selectedVideosList/selectedVideosLis
 import VideosList from '../../components/VideosList/VideosList';
 
 const mapStateToProps = ({ selectedVideosList }) => ({
-  ...selectedVideosList
+  ...selectedVideosList,
 });
 
 const mapDispatchToProps = {
-  fetchVideos
+  fetchVideos,
 };
 
 const SelectedVideosList = connect(

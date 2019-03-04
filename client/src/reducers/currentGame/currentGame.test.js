@@ -6,7 +6,7 @@ describe('currentGame', () => {
       const game = 'Super Mario World';
       const expectedAction = {
         type: duck.SET_CURRENT_GAME,
-        game
+        game,
       };
 
       expect(duck.setCurrentGame(game)).toEqual(expectedAction);
@@ -19,11 +19,13 @@ describe('currentGame', () => {
     });
 
     it('should handle SET_CURRENT_GAME', () => {
-      expect(reducer(undefined, {
-        type: duck.SET_CURRENT_GAME,
-        game: 'Super Mario World'
-      })).toEqual({
-        currentGame: 'Super Mario World'
+      expect(
+        reducer(undefined, {
+          type: duck.SET_CURRENT_GAME,
+          game: 'Super Mario World',
+        })
+      ).toEqual({
+        currentGame: 'Super Mario World',
       });
     });
   });

@@ -2,23 +2,21 @@
 export const SET_CURRENT_GAME = 'SET_CURRENT_GAME';
 
 // Action Creators
-export const setCurrentGame = (game) => ({
+export const setCurrentGame = game => ({
   type: SET_CURRENT_GAME,
-  game
+  game,
 });
 
 // Initial state
-export const initialState = {
-  currentGame: ''
-};
+export const initialState = {};
 
 // Reducer
 export default (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case SET_CURRENT_GAME:
       return {
         ...state,
-        currentGame: action.game
+        currentGame: action.game,
       };
     default:
       return state;

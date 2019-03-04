@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - 11
+branches:
+  only:
+    - master
+    - development
+    - "/^release\\/v\\d+\\.\\d+\\.\\d+(-(alpha|beta).*)?$/"
+install:
+  - npm run install-all
+script:
+  - npm run format-ci
+  - npm run lint
+  - npm run test-ci
+after_success:
+  - npm run coverage-report-client
+deploy:
+  provider: heroku
+  api_key:
+    secure: qN20BZKPiZLMt3JcBj6Yg9rTeSZ4GlOi4ysltcaKeMvoyvEzvkpZGm7KGYAVlQ8TQsnYaGQ5nVlm/DFHCQLNhFNv1HqR6yyy232OLKZQrcSmdpNEsI4rPzVkmzJp+5WwMyfD0GKue/1jesYp44xPgANlO05ZgM0waA/jHwJ9XrQE0U5RjmHsqTkf3umn2YqNe7TcHpi4v/NI4Tfm0L2V5rhPN9OzrG0RSSJcyPGUiQi/tpnrhZANG0z/HMdBQC8AO9+FMhBkMfBz2E1Q7JuxzdhTrOR30YMfzZ8LrqyoHuncoyiccP3yJBfPZ614Ek3DnyL1CrGt7k/h8bco2TUeharbakBrBX/1SWW+Zz53bbt5F7yi8QQTXm6KmUdEwep3KjE/AzccJ1quuO0uLXzgtsEidGfjDCkqFb5IDh4B0zYC/Hk4yxRCHRVzMeOSO1RpaiWp5Dv0yQ47e5GvqWDpw1TUoKoIUGDCQJT/lqFc46Ke56hMMAKONqGjeQmL/j0h2EvlY8y8xsxGzkTSmVuVitHt9Y/PJ+kl1UmHOQsJKB0K5jO73XYD4ISOztehCsvWdWztc9ObJW/1FlOGMJE3h+rRQGIU/zlwgszRZEFn/mTi+lvTFbqjL0JGz+HZh+lEvhLqq0RWsbQh7/9qS/F5ZbbOV56k2QWN/BH26u5/+FY=
+  app: supernintendogameinfo
+  on:
+    repo: ianrosedev/Super-Nintendo-Game-Info

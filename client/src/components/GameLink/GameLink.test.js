@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 describe('GameLink', () => {
   let wrapper;
   let props = {
-    link: 'Super Mario World',
+    game: {
+      wiki: 'Battletoads in Battlemaniacs',
+      url: 'battletoads-in-battlemaniacs',
+      image: 'battletoads_in_battlemaniacs',
+    },
     setCurrentGame: jest.fn(),
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {

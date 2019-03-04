@@ -10,7 +10,9 @@ describe('SelectedGame', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<SelectedGame />).first().shallow();
+    wrapper = shallow(<SelectedGame />)
+      .first()
+      .shallow();
   });
 
   it('renders without crashing', () => {

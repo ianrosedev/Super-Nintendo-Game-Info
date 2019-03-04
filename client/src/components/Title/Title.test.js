@@ -5,7 +5,7 @@ import Title from './Title';
 describe('Title', () => {
   let wrapper;
   const props = {
-    title: 'Super Mario World'
+    title: 'Super Mario World',
   };
 
   beforeEach(() => {

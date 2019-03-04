@@ -5,49 +5,47 @@ export const RECEIVE_VIDEOS = 'RECEIVE_VIDEOS';
 export const HANDLE_VIDEO_ERROR = 'HANDLE_VIDEO_ERROR';
 
 // Action Creators
-export const setSelectedGame = (game) => ({
+export const setSelectedGame = game => ({
   type: SET_SELECTED_GAME,
-  selectedGame: game
+  selectedGame: game,
 });
 
 export const requestVideos = () => ({
   type: REQUEST_VIDEOS,
   isFetching: true,
-  isError: false
+  isError: false,
 });
 
-export const receiveVideos = (videos) => ({
+export const receiveVideos = videos => ({
   type: RECEIVE_VIDEOS,
   isFetching: false,
-  videos: videos
+  videos: videos,
 });
 
 export const handleVideoError = () => ({
   type: HANDLE_VIDEO_ERROR,
   isFetching: false,
-  isError: true
+  isError: true,
 });
 
 // Thunk Action Creators
-export const fetchVideos = (game) => {
-  return (dispatch, getState) => {
-    const currentGame = game || getState().currentGame.currentGame;
+export const fetchVideos = game => {
+  return dispatch => {
+    const currentGame = game ? game.wiki : '';
 
     if (!currentGame) return;
 
     dispatch(setSelectedGame(currentGame));
     dispatch(requestVideos());
 
-    return (
-      fetch(`/videos/${currentGame}`)
-        .then(response => {
-          if (!response.ok) throw new Error();
-          return response;
-        })
-        .then(response => response.json())
-        .then(response => dispatch(receiveVideos(response)))
-        .catch(error => dispatch(handleVideoError()))
-    );
+    return fetch(`/videos/${currentGame}`)
+      .then(response => {
+        if (!response.ok) throw new Error();
+        return response;
+      })
+      .then(response => response.json())
+      .then(response => dispatch(receiveVideos(response)))
+      .catch(error => dispatch(handleVideoError()));
   };
 };
 
@@ -56,7 +54,7 @@ export const initialState = {
   isFetching: false,
   isError: false,
   selectedGame: '',
-  videos: []
+  videos: [],
 };
 
 // Reducer
@@ -65,25 +63,25 @@ export default (state = initialState, action) => {
     case SET_SELECTED_GAME:
       return {
         ...state,
-        selectedGame: action.selectedGame
+        selectedGame: action.selectedGame,
       };
     case REQUEST_VIDEOS:
       return {
         ...state,
         isFetching: action.isFetching,
-        isError: action.isError
+        isError: action.isError,
       };
     case RECEIVE_VIDEOS:
       return {
         ...state,
         isFetching: action.isFetching,
-        videos: action.videos
+        videos: action.videos,
       };
     case HANDLE_VIDEO_ERROR:
       return {
         ...state,
         isFetching: action.isFetching,
-        isError: action.isError
+        isError: action.isError,
       };
     default:
       return state;

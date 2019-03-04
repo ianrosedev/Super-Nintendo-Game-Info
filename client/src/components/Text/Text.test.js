@@ -5,7 +5,7 @@ import Text from './Text';
 describe('Text', () => {
   let wrapper;
   let props = {
-    text: 'Lorem ipsum...'
+    text: 'Lorem ipsum...',
   };
 
   beforeEach(() => {

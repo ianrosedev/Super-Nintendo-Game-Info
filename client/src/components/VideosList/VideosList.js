@@ -1,20 +1,26 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import fullGamesList from '../../static/fullGamesList';
 import Spinner from '../Spinner/Spinner';
 import Video from '../Video/Video';
-import './VideosList.css';
+import './VideosList.scss';
 
 const propTypes = {
   isFetching: PropTypes.bool.isRequired,
   isError: PropTypes.bool.isRequired,
-  selectedGame: PropTypes.string.isRequired,
+  // selectedGame: PropTypes.object.isRequired,
   videos: PropTypes.array.isRequired,
-  fetchVideos: PropTypes.func.isRequired
+  fetchVideos: PropTypes.func.isRequired,
 };
 
 class VideosList extends Component {
   componentDidMount() {
-    this.props.fetchVideos();
+    const { fetchVideos } = this.props;
+    const currentGame = fullGamesList.find(game => {
+      return game.url === window.location.pathname.slice(1);
+    });
+
+    fetchVideos(currentGame);
   }
 
   render() {
@@ -28,21 +34,13 @@ class VideosList extends Component {
       );
     } else {
       const selectedVideos = videos.map((video, i) => (
-        <Video
-          key={i}
-          selectedGame={selectedGame}
-          video={video}
-        />
+        <Video key={i} selectedGame={selectedGame} video={video} />
       ));
 
-      return (
-        (isFetching) ? (
-          <Spinner />
-        ) : (
-          <div className='videos-list'>
-            {selectedVideos}
-          </div>
-        )
+      return isFetching ? (
+        <Spinner />
+      ) : (
+        <div className='videos-list'>{selectedVideos}</div>
       );
     }
   }

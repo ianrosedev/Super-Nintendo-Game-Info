@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Image.css';
+import './Image.scss';
 
 const propTypes = {
   image: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired
+  alt: PropTypes.string.isRequired,
 };
 
 const Image = ({ image, alt }) => (
-  <img
-    className='image'
-    src={image}
-    alt={alt}
-  />
+  <img className='image' src={image} alt={alt} />
 );
 
 Image.propTypes = propTypes;

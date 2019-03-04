@@ -1,5 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import { createMemoryHistory } from 'history';
 import VideosList from './VideosList';
 import Video from '../Video/Video';
 import Spinner from '../Spinner/Spinner';
@@ -7,13 +8,14 @@ import Spinner from '../Spinner/Spinner';
 describe('VideosList', () => {
   let mountedVideosList;
   const videosList = () => {
+    const history = createMemoryHistory('/somegame');
+
     if (!mountedVideosList) {
-      mountedVideosList = shallow(
-        <VideosList {...props} />
-      );
+      mountedVideosList = shallow(<VideosList history={history} {...props} />);
     }
+
     return mountedVideosList;
-  }
+  };
   let props;
 
   beforeEach(() => {

@@ -9,7 +9,7 @@ describe('helpers/strings', () => {
       expect(createImageLink(text)).toEqual(expected);
     });
 
-    it('should remove .\'!?', () => {
+    it("should remove .'!?", () => {
       const text = `super.'!?duper`;
       const expected = 'superduper';
 
@@ -39,7 +39,7 @@ describe('helpers/strings', () => {
       expect(stringToURL(text)).toEqual(expected);
     });
 
-    it('should remove .\'!:?', () => {
+    it("should remove .'!:?", () => {
       const text = `super.'!:?duper`;
       const expected = 'superduper';
 

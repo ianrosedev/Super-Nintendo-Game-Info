@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Footer from './Footer';
-import { Link } from 'react-router-dom';
 
 describe('Footer', () => {
   let wrapper;

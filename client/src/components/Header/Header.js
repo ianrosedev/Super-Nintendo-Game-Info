@@ -1,8 +1,8 @@
 import React from 'react';
-import './Header.css';
+import './Header.scss';
 
 const Header = () => (
-  <div className='header-background'>
+  <div className='header-background' id='top'>
     <div className='header'>
       <h1>Super Nintendo Game Info</h1>
       <img

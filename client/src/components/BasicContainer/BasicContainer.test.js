@@ -5,7 +5,7 @@ import BasicContainer from './BasicContainer';
 describe('BasicContainer', () => {
   let wrapper;
   let props = {
-    children: ''
+    children: '',
   };
 
   beforeEach(() => {
